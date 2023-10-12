@@ -11,7 +11,7 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 workbook = Workbook()
 sheet = workbook.active
 data = [
-    [1001, '白元芳', '男', '13123456789'],
+    [1001, '白晓东', '男', '13123456789'],
     [1002, '白洁', '女', '13233445566']
 ]
 sheet.append(['学号', '姓名', '性别', '电话'])

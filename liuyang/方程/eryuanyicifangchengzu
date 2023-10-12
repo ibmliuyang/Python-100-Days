@@ -1,0 +1,8 @@
+代码如下
+#!/usr/bin/env python
+
+#-*-coding:UTF-8 -*
+import sympy#引入解方程的专业模块sympy
+x,y=sympy.symbols("xy"#申明未知数"x"和"y"
+a=sympy.solve([3*x-2*y-3,x+2*y-5],[x,y])#写入需要解的方程组
+print(a)#打印出结果
