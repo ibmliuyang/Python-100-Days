@@ -4,7 +4,8 @@ from pypinyin import pinyin, Style
 import re  # 导入正则表达式模块
 
 # 指定目录路径
-directory = '/Users/ly/Downloads/手工税种-建表excel/new/'
+#directory = '/Users/ly/Downloads/手工税种-建表excel/new/'
+directory = '/Users/ly/Downloads/手工税种-申报表'
 
 # 获取目录中的所有Excel文件
 excel_files = [f for f in os.listdir(directory) if f.endswith('.xlsx') and "~" not in f]

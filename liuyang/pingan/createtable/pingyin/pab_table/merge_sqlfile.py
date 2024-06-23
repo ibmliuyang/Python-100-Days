@@ -1,7 +1,7 @@
 import os
 
 # 定义目录路径
-directory = "/Users/ly/Downloads/手工税种-建表excel/new"
+directory = '/Users/ly/Downloads/手工税种-申报表'
 
 # 列出目录下的所有.sql文件
 sql_files = [f for f in os.listdir(directory) if f.endswith(".sql")]
