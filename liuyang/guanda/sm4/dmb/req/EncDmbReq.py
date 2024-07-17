@@ -15,9 +15,7 @@ def process_file(input_filename, output_filename):
                 data = match.group(1)
 
 
-                hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
-                sm4 = SM4Util(hex_key)
-                encrypted_text = sm4.encrypt_ecb(data)
+                encrypted_text = SM4Util.enc(data)
                 print(encrypted_text)
 
 

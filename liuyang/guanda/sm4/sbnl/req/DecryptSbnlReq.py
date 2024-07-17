@@ -15,7 +15,7 @@ def process_file(input_filename, output_filename):
                 data = match.group(1)
 
 
-                encrypted_text = SM4Util.enc(data)
+                encrypted_text = SM4Util.dec(data)
                 print(encrypted_text)
 
 
@@ -26,6 +26,6 @@ def process_file(input_filename, output_filename):
 
 
 # 调用函数，传入输入和输出文件名
-input_filename = 'ggnl_yuan_req.sh'
-output_filename = 'ggnl_jiami_req.sh'
+input_filename = 'sbnl.sh'
+output_filename = 'sbnl_yuan_req.sh'
 process_file(input_filename, output_filename)

@@ -1,0 +1,4 @@
+{
+    "httpStatusCode": 200,
+    "body": "{\"Response\": {\"RequestId\": \"0b91890b93df46ba\", \"Data\": \"{\\\"returnmsg\\\":\\\"\\\",\\\"returncode\\\":\\\"00\\\",\\\"bsqkxsxeGrid\\\":[{\\\"swsxDm\\\":\\\"111111\\\",\\\"jmxzDm\\\":\\\"0001011811\\\",\\\"bsqkxsxe\\\":0.0}]}\"}}"
+}

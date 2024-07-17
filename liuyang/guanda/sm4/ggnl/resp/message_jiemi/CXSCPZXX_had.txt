@@ -1,0 +1,4 @@
+{
+    "httpStatusCode": 200,
+    "body": "{\"Response\": {\"RequestId\": \"b2e34ff4a26f2bb4\", \"Data\": \"{\\\"flzlItemConfigs\\\":{\\\"AA0001\\\":{\\\"fileSizes\\\":{\\\"jpg\\\":\\\"15\\\",\\\"zip\\\":\\\"20\\\",\\\"bmp\\\":\\\"10\\\"},\\\"fileExt\\\":\\\"jpg,png,zip,docx\\\"}},\\\"fileExtCategory\\\":{\\\"images\\\":\\\"jpg,bmp,png\\\",\\\"docs\\\":\\\"pdf,xlsx,xls,doc,docx\\\",\\\"compress\\\":\\\"zip,rar\\\"},\\\"returncode\\\":\\\"00\\\",\\\"enableDesFileKey\\\":true,\\\"defaultMaxFileSize\\\":20,\\\"fileSizes\\\":{\\\"jpg\\\":\\\"15\\\",\\\"zip\\\":\\\"20\\\",\\\"bmp\\\":\\\"10\\\"}}\"}}"
+}

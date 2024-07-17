@@ -27,6 +27,19 @@ class SM4Util:
         unpadded_data = unpadder.update(decrypted_data) + unpadder.finalize()
         return unpadded_data.decode('utf-8')
 
+    def dec(data):
+        hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
+        sm4 = SM4Util(hex_key)
+        text = sm4.decrypt_ecb(data)
+        return text
+
+    def enc(data):
+        hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
+        sm4 = SM4Util(hex_key)
+        text = sm4.encrypt_ecb(data)
+        return text
+
+
 # 测试
 if __name__ == "__main__":
     hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
