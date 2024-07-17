@@ -13,8 +13,7 @@ def process_file(input_filename, output_filename):
             if match:
                 # 提取匹配的内容
                 data = match.group(1)
-                # 给数据追加"ok"
-                modified_data = f"{data}ok"
+
 
                 hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
                 sm4 = SM4Util(hex_key)
@@ -29,6 +28,6 @@ def process_file(input_filename, output_filename):
 
 
 # 调用函数，传入输入和输出文件名
-input_filename = 'sh/dmb104_mi_req.sh'
-output_filename = 'sh/dmb104_yuan_req.sh'
+input_filename = 'dmb104_mi_req.sh'
+output_filename = 'dmb104_yuan_req.sh'
 process_file(input_filename, output_filename)
