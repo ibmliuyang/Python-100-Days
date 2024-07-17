@@ -8,8 +8,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s',
-                    filename='logfile.log',
-                    filemode='a')  # 'a' 表示追加模式
+                    filename='gongbu48.log',  # 日志文件名
+                    filemode='a')  # 文件打开模式，'a'表示追加
 
 EMAIL_ADDRESS = '393670@qq.com'  # 发件人邮箱
 EMAIL_PASSWORD = 'nndcfvflltxxcaae'  # 发件人邮箱密码或应用密码
@@ -31,19 +31,24 @@ def send_email(subject, message):
 
 while True:
     try:
-        response = requests.get('http://sjzjyj.sjz.gov.cn/a/zwgk/tzgg/index.html')
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+        }
+        url = 'https://sjzzs.shidajy.com/smsySchoolApi/assignAdmissions/getSchoolList'
+
+        response = requests.get(url, headers=headers)
         response.encoding = 'utf-8'
         content = response.text
         if last_content != content:
             # 使用logging.info代替print输出当前时间
             logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             # 内容发生变化，发送邮件
-            logging.info("Content has changed! content：" + content)
-            send_email("发公告了！！！", content)
+            logging.info("48公布了！！: " + content)
+            send_email("48公布了！！: ", content)
             last_content = content
         else:
             logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-            logging.info("No change detected.")
+            logging.info("网站没有变化，没有开始.")
     except Exception as e:
         logging.error(f"An error occurred: {e}")
-    time.sleep(60)  # 等待1分钟
+    time.sleep(62)  # 等待1分钟

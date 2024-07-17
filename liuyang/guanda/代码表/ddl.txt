@@ -1,0 +1,1110 @@
+DROP TABLE IF EXISTS `LQ_DM_GY_DZBZDSZL`;
+
+CREATE TABLE `LQ_DM_GY_DZBZDSZL` (
+`dzbzdszlDm` VARCHAR(10) COMMENT "电子表证单书种类代码",
+`bz` VARCHAR(3000) COMMENT "备注",
+`dzbzdszlmc` VARCHAR(300) COMMENT "电子表证单书种类名称",
+`sjdzbzdszlDm` CHAR(10) COMMENT "上级电子表证单书种类代码",
+`zg` VARCHAR(75) COMMENT "字轨",
+`sdnsrbzDm` CHAR(2) COMMENT "送达纳税人标志代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '1.电子类表证单书种类代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_NSRZT`;
+
+CREATE TABLE `LQ_DM_GY_NSRZT` (
+`nsrztDm` CHAR(2) COMMENT "纳税人状态代码",
+`nsrztmc` VARCHAR(30) COMMENT "纳税人状态名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '2.纳税人状态代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_DJ_DJZCLX`;
+
+CREATE TABLE `LQ_DM_DJ_DJZCLX` (
+`djzclxDm` CHAR(3) COMMENT "登记注册类型代码",
+`djzclxmc` VARCHAR(60) COMMENT "登记注册类型名称",
+`dlbz` CHAR(1) COMMENT "大类标志",
+`zlbz` CHAR(1) COMMENT "中类标志",
+`xlbz` CHAR(1) COMMENT "小类标志",
+`sjdjzclxDm` CHAR(3) COMMENT "上级登记注册类型代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '3.登记注册类型代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_DJ_KZZTDJLX`;
+
+CREATE TABLE `LQ_DM_DJ_KZZTDJLX` (
+`kzztdjlxDm` CHAR(4) COMMENT "课征主体登记类型代码",
+`kzztdjlxmc` VARCHAR(150) COMMENT "课征主体登记类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '4.课征主体类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_HY`;
+
+CREATE TABLE `LQ_DM_GY_HY` (
+`hyDm` VARCHAR(4) COMMENT "行业代码",
+`hymc` VARCHAR(68) COMMENT "行业名称",
+`mlbz` CHAR(1) COMMENT "门类标志",
+`dlbz` CHAR(1) COMMENT "大类标志",
+`zlbz` CHAR(1) COMMENT "中类标志",
+`xlbz` CHAR(1) COMMENT "小类标志",
+`sjhyDm` VARCHAR(4) COMMENT "上级行业代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '5.行业代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SWJG`;
+
+CREATE TABLE `LQ_DM_GY_SWJG` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`swjgmc` VARCHAR(300) COMMENT "税务机关名称",
+`swjgjc` VARCHAR(150) COMMENT "税务机构简称",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '6.税务机关代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_GJHDQ`;
+
+CREATE TABLE `LQ_DM_GY_GJHDQ` (
+`gjhdqszDm` CHAR(3) COMMENT "国家或地区数字代码",
+`gjhdqmc` VARCHAR(300) COMMENT "国家或地区名称",
+`gjhdqjc` VARCHAR(45) COMMENT "国家或地区简称",
+`gjhdqywmc` VARCHAR(150) COMMENT "国家或地区英文名称",
+`gjhdqywjc` VARCHAR(75) COMMENT "国家或地区英文简称",
+`gjhdqszmDm` CHAR(3) COMMENT "国家或地区三字母代码",
+`gjhdqlzmDm` CHAR(2) COMMENT "国家或地区两字母代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '7.国家和地区代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_XZQH`;
+
+CREATE TABLE `LQ_DM_GY_XZQH` (
+`ssxzqmc` VARCHAR(150) COMMENT "所属行政区名称",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`xzqhjc` CHAR(1) COMMENT "行政区划级次",
+`xzqhlxDm` CHAR(1) COMMENT "行政区划类型代码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`xzqhzmDm` VARCHAR(3) COMMENT "行政区划字母代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xzqhmc` VARCHAR(150) COMMENT "行政区划名称"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '8.行政区划代码';
+
+DROP TABLE IF EXISTS `LQ_CS_DJ_JDXZXZQHDZB（新电局）`;
+
+CREATE TABLE `LQ_CS_DJ_JDXZXZQHDZB（新电局）` (
+`gdslxDm` CHAR(1) COMMENT "国地税类型代码",
+`jdxzDm` CHAR(9) COMMENT "街道乡镇代码",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '9.街道乡镇行政区划对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_JDXZ`;
+
+CREATE TABLE `LQ_DM_GY_JDXZ` (
+`jdxzDm` CHAR(9) COMMENT "街道乡镇代码",
+`jdxzmc` VARCHAR(300) COMMENT "街道乡镇名称",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '10.街道乡镇代码';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_JDXZSWJGDZB（新电局）`;
+
+CREATE TABLE `LQ_CS_GY_JDXZSWJGDZB（新电局）` (
+`jdxzDm` CHAR(9) COMMENT "街道乡镇代码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`zgswskfjDm` CHAR(11) COMMENT "主管税务所（科、分局）代码",
+`ywlx` CHAR(9) COMMENT "业务类型"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '11.街道乡镇税务机关对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_KJZDZZ`;
+
+CREATE TABLE `LQ_DM_GY_KJZDZZ` (
+`kjzdzzDm` CHAR(3) COMMENT "会计制度（准则）代码",
+`kjzdzzmc` VARCHAR(90) COMMENT "会计制度（准则）名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`sjkjzdzzDm` CHAR(3) COMMENT "上级会计制度（准则）代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '12.会计制度（准则）代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_DWLSGX`;
+
+CREATE TABLE `LQ_DM_GY_DWLSGX` (
+`dwlsgxDm` CHAR(2) COMMENT "单位隶属关系代码",
+`dwlsgxmc` VARCHAR(150) COMMENT "单位隶属关系名称",
+`bz` VARCHAR(3000) COMMENT "备注",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '13.单位隶属关系代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SFZJLX`;
+
+CREATE TABLE `LQ_DM_GY_SFZJLX` (
+`sfzjlxDm` CHAR(3) COMMENT "身份证件类型代码",
+`sfzjlxmc` VARCHAR(75) COMMENT "身份证件类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '14.身份证件类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_ZSXM`;
+
+CREATE TABLE `LQ_DM_GY_ZSXM` (
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`sjzsxmDm` VARCHAR(5) COMMENT "上级征收项目代码",
+`zsxmmc` VARCHAR(150) COMMENT "征收项目名称",
+`zsxmjc` VARCHAR(150) COMMENT "征收项目简称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '15.征收项目代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_ZSPM`;
+
+CREATE TABLE `LQ_DM_GY_ZSPM` (
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`sf2016ygzbz` CHAR(1) COMMENT "是否2016营改增标志",
+`zsl` NUMBER(16,6) COMMENT "征收率",
+`sl_1` NUMBER(16,6) COMMENT "税率",
+`jldwDm` CHAR(4) COMMENT "计量单位代码",
+`zspmmc` VARCHAR(210) COMMENT "征收品目名称",
+`sjzspmDm` CHAR(9) COMMENT "上级征收品目代码",
+`sljsfsDm` CHAR(2) COMMENT "税率计算方式代码",
+`bz` VARCHAR(3000) COMMENT "备注",
+`sfygzzspmbz` CHAR(1) COMMENT "是否营改增征收品目标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '16.征收品目代码';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_GLB_ZSPM`;
+
+CREATE TABLE `LQ_CS_GY_GLB_ZSPM` (
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`sl_1` NUMBER(16,6) COMMENT "税率",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`uuid` VARCHAR(32) COMMENT "UUID",
+`zsl` NUMBER(16,6) COMMENT "征收率"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '17.征收品目关联表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_ZSZM`;
+
+CREATE TABLE `LQ_DM_GY_ZSZM` (
+`zsxmDm` CHAR(16) COMMENT "征收子目代码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`hdhyDm` VARCHAR(2) COMMENT "核定行业代码",
+`zszmmc` VARCHAR(750) COMMENT "征收子目名称",
+`sljsfsDm` CHAR(2) COMMENT "税率计算方式代码",
+`zszmjc` VARCHAR(750) COMMENT "征收子目简称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '18.征收子目代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_SBSX`;
+
+CREATE TABLE `LQ_DM_SB_SBSX` (
+`sbsxDm_1` CHAR(1) COMMENT "申报属性代码",
+`sbsxmc_1` VARCHAR(30) COMMENT "申报属性名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`sjsbsxDm` CHAR(2) COMMENT "上级申报属性代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '19.申报属性代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SBFS`;
+
+CREATE TABLE `LQ_DM_GY_SBFS` (
+`sbfsDm` CHAR(2) COMMENT "申报方式代码",
+`sbfsmc` VARCHAR(30) COMMENT "申报方式名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`sjsbfsDm` CHAR(2) COMMENT "上级申报方式代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '20.申报方式代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_ZSFS`;
+
+CREATE TABLE `LQ_DM_GY_ZSFS` (
+`zsfsDm` CHAR(3) COMMENT "征收方式代码",
+`zsfsmc` VARCHAR(75) COMMENT "征收方式名称",
+`sjzsfsDm` CHAR(3) COMMENT "上级征收方式代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '21.征收方式代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_ZSDLFS`;
+
+CREATE TABLE `LQ_DM_GY_ZSDLFS` (
+`zsdlfsDm` CHAR(1) COMMENT "征收代理方式代码",
+`zsdlfsmc` VARCHAR(20) COMMENT "征收代理方式名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '22.征收代理方式代码';
+
+DROP TABLE IF EXISTS `LQ_DM_ZS_SKSX`;
+
+CREATE TABLE `LQ_DM_ZS_SKSX` (
+`sksxDm` CHAR(4) COMMENT "税款属性代码",
+`sksxmc` VARCHAR(150) COMMENT "税款属性名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '23.税款属性代码';
+
+DROP TABLE IF EXISTS `LQ_DM_ZS_SKZL`;
+
+CREATE TABLE `LQ_DM_ZS_SKZL` (
+`skzlDm` CHAR(2) COMMENT "税款种类代码",
+`skzlmc` VARCHAR(30) COMMENT "税款种类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '24.税款种类代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SBQX`;
+
+CREATE TABLE `LQ_DM_GY_SBQX` (
+`sbqxDm` CHAR(2) COMMENT "申报期限代码",
+`sbqxgz` VARCHAR(15) COMMENT "申报期限规则",
+`sbqxmc` VARCHAR(90) COMMENT "申报期限名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '25.申报期限代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_NSQX`;
+
+CREATE TABLE `LQ_DM_GY_NSQX` (
+`nsqxDm` CHAR(2) COMMENT "纳税期限代码",
+`nsqxmc` VARCHAR(15) COMMENT "纳税期限名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '26.纳税期限代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_JKQX`;
+
+CREATE TABLE `LQ_DM_GY_JKQX` (
+`jkqxDm` CHAR(2) COMMENT "缴款期限代码",
+`jkqxgz` VARCHAR(15) COMMENT "缴款期限规则",
+`jkqxmc` VARCHAR(90) COMMENT "缴款期限名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '27.缴款期限代码';
+
+DROP TABLE IF EXISTS `LQ_DM_ZS_TTSFLX`;
+
+CREATE TABLE `LQ_DM_ZS_TTSFLX` (
+`ttsflxDm` CHAR(2) COMMENT "提退税（费）类型代码",
+`ttsflxmc` VARCHAR(60) COMMENT "提退税（费）类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '28.提退税（费）类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_PZ_PZZL`;
+
+CREATE TABLE `LQ_DM_PZ_PZZL` (
+`pzzlDm` VARCHAR(9) COMMENT "票证种类代码",
+`pzzlmc` VARCHAR(75) COMMENT "票证种类名称",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '29.票证种类代码';
+
+DROP TABLE IF EXISTS `LQ_DM_FP_FPZT`;
+
+CREATE TABLE `LQ_DM_FP_FPZT` (
+`fpztDm` CHAR(1) COMMENT "发票状态代码",
+`fpztmc` VARCHAR(75) COMMENT "发票状态名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '30.发票状态代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_GXDKLX`;
+
+CREATE TABLE `LQ_DM_SS_GXDKLX` (
+`gxdklxDm` CHAR(1) COMMENT "勾选抵扣类型代码",
+`gxdklxmc` VARCHAR(30) COMMENT "勾选抵扣类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '31.勾选抵扣类型代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_DZFP_TDYSLX`;
+
+CREATE TABLE `LQ_DM_DZFP_TDYSLX` (
+`tdyslxDm` CHAR(2) COMMENT "特定要素类型代码",
+`swsxmc` VARCHAR(450) COMMENT "特定要素类型名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '32.特定要素类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SWSX`;
+
+CREATE TABLE `LQ_DM_GY_SWSX` (
+`swsxDm` CHAR(12) COMMENT "税务事项代码",
+`swsxmc` VARCHAR(450) COMMENT "税务事项名称",
+`bz` VARCHAR(3000) COMMENT "备注",
+`bsfsDm` CHAR(2) COMMENT "部署方式代码",
+`slswsxDm` VARCHAR(16) COMMENT "受理税务事项代码",
+`ywlcDm` CHAR(9) COMMENT "业务流程代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '33.税务事项代码';
+
+DROP TABLE IF EXISTS `LQ_CS_YH_SWSXJMXZDZB`;
+
+CREATE TABLE `LQ_CS_YH_SWSXJMXZDZB` (
+`uuid` VARCHAR(32) COMMENT "UUID",
+`ssjmxzxlDm` CHAR(2) COMMENT "税收减免性质小类代码",
+`ssjmxzdlDm` CHAR(2) COMMENT "税收减免性质大类代码",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`swsxDm` CHAR(12) COMMENT "税务事项代码",
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`sxh` NUMBER(10) COMMENT "顺序号",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '34.税务事项与减免性质对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_YH_SSYHLX`;
+
+CREATE TABLE `LQ_DM_YH_SSYHLX` (
+`ssyhlxDm` CHAR(3) COMMENT "税收优惠类型代码",
+`ssyhlxmc` VARCHAR(75) COMMENT "税收优惠类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`sjssyhlxDm` CHAR(3) COMMENT "上级税收优惠类型代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '35.税收优惠类型代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_YH_JMLX`;
+
+CREATE TABLE `LQ_DM_YH_JMLX` (
+`jmlxDm` CHAR(1) COMMENT "减免类型代码",
+`jmlxmc` VARCHAR(75) COMMENT "减免类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '36.减免类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_YH_JMFS`;
+
+CREATE TABLE `LQ_DM_YH_JMFS` (
+`jmfsDm` VARCHAR(2) COMMENT "减免方式代码",
+`jmfsmc` VARCHAR(750) COMMENT "减免方式名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '37.减免方式代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SSJMXZ`;
+
+CREATE TABLE `LQ_DM_GY_SSJMXZ` (
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`ssjmxzmc` VARCHAR(450) COMMENT "税收减免性质名称",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`byxssjmxzDm` VARCHAR(10) COMMENT "被延续税收减免性质代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '38.税收减免性质代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SSJMXZDL`;
+
+CREATE TABLE `LQ_DM_GY_SSJMXZDL` (
+`ssjmxzdlDm` CHAR(2) COMMENT "税收减免性质大类代码",
+`ssjmxzdlmc` VARCHAR(45) COMMENT "税收减免性质大类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '39.税收减免性质大类代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_SSJMXZXL`;
+
+CREATE TABLE `LQ_DM_GY_SSJMXZXL` (
+`ssjmxzxlDm` CHAR(2) COMMENT "税收减免性质小类代码",
+`ssjmxzxlmc` VARCHAR(60) COMMENT "税收减免性质小类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '40.税收减免性质小类代码';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_SSJMXZYJMZLXDZB`;
+
+CREATE TABLE `LQ_CS_GY_SSJMXZYJMZLXDZB` (
+`uuid` VARCHAR(32) COMMENT "UUID",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`jmzlxDm` VARCHAR(3) COMMENT "减免征类型代码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '41.税收减免性质与减免征类型对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_YH_JMZLX`;
+
+CREATE TABLE `LQ_DM_YH_JMZLX` (
+`jmzlxDm` VARCHAR(3) COMMENT "减免征类型代码",
+`jmzlxmc` VARCHAR(30) COMMENT "减免征类型名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '42.减免征类型代码';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_SSJMXZJMFDEDSLGX`;
+
+CREATE TABLE `LQ_CS_GY_SSJMXZJMFDEDSLGX` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`jmsl` NUMBER(16,6) COMMENT "减免税率",
+`jmed` NUMBER(16,6) COMMENT "减免额度",
+`jmfd` NUMBER(16,6) COMMENT "减免幅度",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '43.税收减免性质减免幅度、额度、税率关系表';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_JMSXM`;
+
+CREATE TABLE `LQ_DM_SS_JMSXM` (
+`jmsxmDm` CHAR(1) COMMENT "减免税项目代码",
+`jmsxmmc` VARCHAR(300) COMMENT "减免税项目名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '44.减免税项目代码';
+
+DROP TABLE IF EXISTS `LQ_DM_YH_JMXMDL`;
+
+CREATE TABLE `LQ_DM_YH_JMXMDL` (
+`jmxmdlDm` CHAR(2) COMMENT "减免项目大类代码",
+`jmxmdlmc` VARCHAR(45) COMMENT "减免项目大类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '45.减免项目大类代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_YH_JMXMXL`;
+
+CREATE TABLE `LQ_DM_YH_JMXMXL` (
+`jmxmxlDm` CHAR(3) COMMENT "减免项目小类代码",
+`jmxmxlmc` VARCHAR(45) COMMENT "减免项目小类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '46.减免项目小类代码表';
+
+DROP TABLE IF EXISTS `LQ_CS_YH_XEJMJMXZPZB`;
+
+CREATE TABLE `LQ_CS_YH_XEJMJMXZPZB` (
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`swsxDm` VARCHAR(300) COMMENT "税务事项代码",
+`zsxmDm` VARCHAR(150) COMMENT "征收项目代码",
+`sfzjlxDm` CHAR(3) COMMENT "身份证件类型代码",
+`tdjmlx` CHAR(1) COMMENT "特定减免类型",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '47.限额减免减免性质配置表';
+
+DROP TABLE IF EXISTS `LQ_CS_SB_PHJMPZB`;
+
+CREATE TABLE `LQ_CS_SB_PHJMPZB` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`jkzl` CHAR(1) COMMENT "监控种类",
+`jzzcsyztDm` VARCHAR(2) COMMENT "减征政策适用主体代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '48.普惠减免配置表';
+
+DROP TABLE IF EXISTS `LQ_CS_SB_JZZCSYZT`;
+
+CREATE TABLE `LQ_CS_SB_JZZCSYZT` (
+`jzzcsyztDm` VARCHAR(2) COMMENT "减征政策适用主体代码",
+`jzzcsyztmc` VARCHAR(300) COMMENT "减征政策适用主体名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`sjjzzcsyztDm` VARCHAR(2) COMMENT "上级减征政策适用主体代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '49.减征政策适用主体代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_MTSZC`;
+
+CREATE TABLE `LQ_DM_SS_MTSZC` (
+`mtszcDm` VARCHAR(2) COMMENT "免退税政策代码",
+`mtszcmc` VARCHAR(75) COMMENT "免退税政策名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '50.免退税政策代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_JSFF`;
+
+CREATE TABLE `LQ_DM_SS_JSFF` (
+`jsffDm` CHAR(1) COMMENT "计税方法代码",
+`jsffmc` VARCHAR(25) COMMENT "计税方法名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '51.计税方法代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_AZZSJJDJKMLX`;
+
+CREATE TABLE `LQ_DM_SS_AZZSJJDJKMLX` (
+`azzsjjdjkmlxDm` CHAR(1) COMMENT "按增值税加计抵减科目类型代码",
+`azzsjjdjkmlxmc` VARCHAR(75) COMMENT "按增值税加计抵减科目类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '52.按增值税加计抵减科目类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_JXSEZCLX`;
+
+CREATE TABLE `LQ_DM_SS_JXSEZCLX` (
+`jxsezclxDm` VARCHAR(2) COMMENT "进项税额转出类型代码",
+`jxsezclxmc` VARCHAR(150) COMMENT "进项税额转出类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '53.进项税额转出类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_LDSEZT`;
+
+CREATE TABLE `LQ_DM_SS_LDSEZT` (
+`ldseztDm` VARCHAR(2) COMMENT "留抵税额状态代码",
+`ldseztmc` VARCHAR(75) COMMENT "留抵税额状态名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '54.留抵税额状态代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_NSJCTZLX`;
+
+CREATE TABLE `LQ_DM_SS_NSJCTZLX` (
+`nsjctzlxDm` VARCHAR(2) COMMENT "纳税检查调整类型代码",
+`nsjctzlxmc` VARCHAR(75) COMMENT "纳税检查调整类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '55.纳税检查调整类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSGCWD`;
+
+CREATE TABLE `LQ_DM_SS_SSGCWD` (
+`ssgcwdsyszDm` VARCHAR(2) COMMENT "算税过程维度适用税种代码",
+`ssgcwdDm` VARCHAR(50) COMMENT "算税过程维度代码",
+`ssgcwdmc` VARCHAR(300) COMMENT "算税过程维度名称",
+`ssgcwd1Dm` VARCHAR(6) COMMENT "算税过程维度1代码",
+`ssgcwd1mc` VARCHAR(75) COMMENT "算税过程维度1名称",
+`ssgcwd2Dm` VARCHAR(6) COMMENT "算税过程维度2代码",
+`ssgcwd2mc` VARCHAR(75) COMMENT "算税过程维度2名称",
+`ssgcwd3Dm` VARCHAR(6) COMMENT "算税过程维度3代码",
+`ssgcwd3mc` VARCHAR(75) COMMENT "算税过程维度3名称",
+`ssgcwd4Dm` VARCHAR(6) COMMENT "算税过程维度4代码",
+`ssgcwd4mc` VARCHAR(75) COMMENT "算税过程维度4名称",
+`ssgcwd5Dm` VARCHAR(6) COMMENT "算税过程维度5代码",
+`ssgcwd5mc` VARCHAR(75) COMMENT "算税过程维度5名称",
+`ssztfx` VARCHAR(10) COMMENT "算税状态方向",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '56.算税过程维度代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSPZFL`;
+
+CREATE TABLE `LQ_DM_SS_SSPZFL` (
+`sspzflDm` CHAR(1) COMMENT "算税凭证分类代码",
+`sspzflmc` VARCHAR(75) COMMENT "算税凭证分类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '57.算税凭证分类代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSSJQD`;
+
+CREATE TABLE `LQ_DM_SS_SSSJQD` (
+`sssjqdDm` VARCHAR(2) COMMENT "算税数据渠道代码",
+`sssjqdmc` VARCHAR(75) COMMENT "算税数据渠道名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '58.算税数据渠道代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSYSPZLX`;
+
+CREATE TABLE `LQ_DM_SS_SSYSPZLX` (
+`ssyspzlxDm` VARCHAR(10) COMMENT "算税原始凭证类型代码",
+`ssyspzlxmc` VARCHAR(150) COMMENT "算税原始凭证类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '59.算税原始凭证类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSYWLX`;
+
+CREATE TABLE `LQ_DM_SS_SSYWLX` (
+`ssywlxDm` VARCHAR(4) COMMENT "算税业务类型代码",
+`ssywlxmc` VARCHAR(150) COMMENT "算税业务类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '60.算税业务类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSYWXW`;
+
+CREATE TABLE `LQ_DM_SS_SSYWXW` (
+`ssywxwDm` VARCHAR(2) COMMENT "算税业务行为代码",
+`ssywxwmc` VARCHAR(75) COMMENT "算税业务行为名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '61.算税业务行为代码';
+
+DROP TABLE IF EXISTS `LQ_CS_SS_SSYWLXYSSYSPZLXDZ`;
+
+CREATE TABLE `LQ_CS_SS_SSYWLXYSSYSPZLXDZ` (
+`ssywlxDm` VARCHAR(4) COMMENT "算税业务类型代码",
+`ssywlxmc` VARCHAR(150) COMMENT "算税业务类型名称",
+`ssyspzlxDm` VARCHAR(10) COMMENT "算税原始凭证类型代码",
+`ssyspzlxmc` VARCHAR(150) COMMENT "算税原始凭证类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '62.算税业务类型与算税原始凭证类型对照';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SSMSBZ`;
+
+CREATE TABLE `LQ_DM_SS_SSMSBZ` (
+`ssmsbzDm` CHAR(1) COMMENT "算税免税标志代码",
+`ssmsbzmc` VARCHAR(75) COMMENT "算税免税标志名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '63.算税免税标志代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_ZZSYJLX`;
+
+CREATE TABLE `LQ_DM_SS_ZZSYJLX` (
+`zzsyjlxDm` VARCHAR(2) COMMENT "增值税预缴类型代码",
+`zzsyjlxmc` VARCHAR(75) COMMENT "增值税预缴类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '64.增值税预缴类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_SDJMYHSXMC`;
+
+CREATE TABLE `LQ_DM_SB_SDJMYHSXMC` (
+`sdjmyhsxDm` CHAR(4) COMMENT "所得减免优惠事项代码",
+`sdjmyhsxmc` VARCHAR(270) COMMENT "所得减免优惠事项名称",
+`sjsdjmyhsxDm` CHAR(4) COMMENT "上级所得减免优惠事项名称代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '65.特定项目所得减免优惠事项名称代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_YHHB`;
+
+CREATE TABLE `LQ_DM_GY_YHHB` (
+`yhhbDm` CHAR(3) COMMENT "银行行别代码",
+`yhhbmc` VARCHAR(120) COMMENT "银行行别名称",
+`yhhbjc` VARCHAR(120) COMMENT "银行行别简称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '66.银行行别代码';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_YHYYWD`;
+
+CREATE TABLE `LQ_DM_GY_YHYYWD` (
+`yhyywdDm` VARCHAR(13) COMMENT "银行营业网点代码",
+`yhyywdmc` VARCHAR(150) COMMENT "银行营业网点名称",
+`yhyywdjc` VARCHAR(120) COMMENT "银行营业网点简称",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '67.银行营业网点代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_SPBMDL`;
+
+CREATE TABLE `LQ_DM_SS_SPBMDL` (
+`spbmdlDm` CHAR(1) COMMENT "商品编码大类代码",
+`spbmdlmc` VARCHAR(75) COMMENT "商品编码大类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '68.商品编码大类代码';
+
+DROP TABLE IF EXISTS `LQ_CS_SB_XFSSPBMYSMDY（待定）`;
+
+CREATE TABLE `LQ_CS_SB_XFSSPBMYSMDY（待定）` (
+`sphfwssflbm` NUMBER(20) COMMENT "商品和服务税收分类编码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`yxws` NUMBER(20) COMMENT "有效位数",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '69.商品编码与税目对照表';
+
+DROP TABLE IF EXISTS `LQ_CS_SS_SPBMYJMXZDZB`;
+
+CREATE TABLE `LQ_CS_SS_SPBMYJMXZDZB` (
+`sphfwssflbm` NUMBER(20) COMMENT "商品和服务税收分类编码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`ssjmxzDm` VARCHAR(10) COMMENT "税收减免性质代码",
+`swsxDm` CHAR(12) COMMENT "税务事项代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '70.商品编码与减免性质对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_JLDW`;
+
+CREATE TABLE `LQ_DM_GY_JLDW` (
+`jldwDm` CHAR(4) COMMENT "计量单位代码",
+`jldwmc` VARCHAR(300) COMMENT "计量单位名称",
+`jldwjc` VARCHAR(60) COMMENT "计量单位简称",
+`jldwlb` VARCHAR(18) COMMENT "计量单位类别",
+`mrbz` CHAR(1) COMMENT "默认标志",
+`cjyz` NUMBER(16,6) COMMENT "乘积因子",
+`cjclbz` CHAR(1) COMMENT "从价从量标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '71.计量单位代码表';
+
+DROP TABLE IF EXISTS `LQ_CS_SS_JLDWHSB`;
+
+CREATE TABLE `LQ_CS_SS_JLDWHSB` (
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`hsqjldwDm` CHAR(4) COMMENT "换算前计量单位代码",
+`hsqjldwmc` VARCHAR(75) COMMENT "换算前计量单位名称",
+`hshjldwDm` CHAR(4) COMMENT "换算后计量单位代码",
+`hshjldwmc` VARCHAR(75) COMMENT "换算后计量单位名称",
+`hsl` NUMBER(16,6) COMMENT "换算率",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '72.计量单位换算表';
+
+DROP TABLE IF EXISTS `LQ_CS_SS_XFSPMYHYDZB`;
+
+CREATE TABLE `LQ_CS_SS_XFSPMYHYDZB` (
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`hyDm` VARCHAR(4) COMMENT "行业代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '73.消费税品目与行业对照表';
+
+DROP TABLE IF EXISTS `LQ_CS_SS_XFSPMYJLDWDZB`;
+
+CREATE TABLE `LQ_CS_SS_XFSPMYJLDWDZB` (
+`zsxmDm` CHAR(5) COMMENT "征收项目代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`blsl` NUMBER(16,6) COMMENT "比例税率",
+`desl` NUMBER(16,6) COMMENT "定额税率",
+`jldwdm` CHAR(4) COMMENT "计量单位代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '74.消费税品目与计量单位对照表';
+
+DROP TABLE IF EXISTS `LQ_CS_SS_SPBMXFSPMHKCFSDZB`;
+
+CREATE TABLE `LQ_CS_SS_SPBMXFSPMHKCFSDZB` (
+`sphfwssflbm` VARCHAR(19) COMMENT "商品和服务税收分类编码",
+`yxws` VARCHAR(19) COMMENT "有效位数",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`kcfsDm` CHAR(1) COMMENT "扣除方式代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '75.商品编码、消费税品目和扣除方式对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_SS_KCFS`;
+
+CREATE TABLE `LQ_DM_SS_KCFS` (
+`ckfsDm` CHAR(1) COMMENT "扣除方式代码",
+`ckfsmc` VARCHAR(30) COMMENT "扣除方式名称",
+`jylbmc` VARCHAR(45) COMMENT "卷烟类别名称",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '76.扣除方式代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_JYLB`;
+
+CREATE TABLE `LQ_DM_SB_JYLB` (
+`jylbDm` VARCHAR(11) COMMENT "卷烟类别",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`jylbmc` VARCHAR(45) COMMENT "卷烟类别名称",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '77.卷烟类别代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_JYLX`;
+
+CREATE TABLE `LQ_DM_SB_JYLX` (
+`jylxDm` VARCHAR(11) COMMENT "卷烟类型代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`jylxmc` VARCHAR(40) COMMENT "卷烟类型名称"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '78.卷烟类型代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_FCYT`;
+
+CREATE TABLE `LQ_DM_SB_FCYT` (
+`fcytDm` CHAR(3) COMMENT "房产用途",
+`fcytmc` VARCHAR(150) COMMENT "房产用途名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '79.房产用途代码';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_FCSNSRLX`;
+
+CREATE TABLE `LQ_DM_SB_FCSNSRLX` (
+`fcsnsrlxDm` CHAR(2) COMMENT "房产税纳税人类型代码",
+`fcsnsrlxmc` VARCHAR(75) COMMENT "房产税纳税人类型名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '80.房产纳税人类型代码';
+
+DROP TABLE IF EXISTS `LQ_CS_SB_FTC_MRQXGZ`;
+
+CREATE TABLE `LQ_CS_SB_FTC_MRQXGZ` (
+`uuid` VARCHAR(32) COMMENT "UUID",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`nsrlx` CHAR(1) COMMENT "纳税人类型",
+`hyDm` VARCHAR(4) COMMENT "行业代码",
+`sbqxDm` CHAR(2) COMMENT "申报期限代码",
+`jkqxDm` CHAR(2) COMMENT "缴款期限代码",
+`nsqxDm` CHAR(2) COMMENT "纳税期限代码",
+`yxbz` CHAR(1) COMMENT "选用标志",
+`xybz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '81.房土车默认期限规则代码';
+
+DROP TABLE IF EXISTS `LQ_CS_DJ_FCYZKCLSZB`;
+
+CREATE TABLE `LQ_CS_DJ_FCYZKCLSZB` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`kcl` NUMBER(5,2) COMMENT "扣除率",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '82.房产原值扣除率设置表';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_TDYT`;
+
+CREATE TABLE `LQ_DM_SB_TDYT` (
+`tdytDm` CHAR(1) COMMENT "土地用途代码",
+`tdytmc` VARCHAR(750) COMMENT "土地用途名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '83.土地用途代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_TDQDFS`;
+
+CREATE TABLE `LQ_DM_SB_TDQDFS` (
+`tdqdfsDm` CHAR(2) COMMENT "土地取得方式代码",
+`tdqdfsmc` VARCHAR(150) COMMENT "土地取得方式名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '84.土地取得方式代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_TDXZ`;
+
+CREATE TABLE `LQ_DM_SB_TDXZ` (
+`tdxzDm` CHAR(2) COMMENT "土地性质代码",
+`tdxzmc` VARCHAR2(150) COMMENT "土地性质名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '85.土地性质代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_DJ_TDDJ`;
+
+CREATE TABLE `LQ_DM_DJ_TDDJ` (
+`tddjDm` CHAR(3) COMMENT "土地等级代码",
+`tddjmc` VARCHAR2(30) COMMENT "土地等级名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`sjtddjDm` CHAR(3) COMMENT "上级土地等级代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '86.土地等级代码表';
+
+DROP TABLE IF EXISTS `LQ_CS_DJ_TDDJZSPMDZB`;
+
+CREATE TABLE `LQ_CS_DJ_TDDJZSPMDZB` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`tddjDm` CHAR(3) COMMENT "土地等级代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '87.土地等级征收品目对照表';
+
+DROP TABLE IF EXISTS `LQ_CS_DJ_TDDWSESZB`;
+
+CREATE TABLE `LQ_CS_DJ_TDDWSESZB` (
+`uuid` VARCHAR2(32) COMMENT "UUID",
+`xzqhszDm` CHAR(6) COMMENT "行政区划数字代码",
+`tddjDm` CHAR(3) COMMENT "土地等级代码",
+`dwse` NUMBER(18,6) COMMENT "单位税额",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`jdxzDm` CHAR(9) COMMENT "街道乡镇代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '88.土地单位税额设置表';
+
+DROP TABLE IF EXISTS `LQ_DM_DJ_KDQSSZYQYLX`;
+
+CREATE TABLE `LQ_DM_DJ_KDQSSZYQYLX` (
+`kdqsszyqylxDm` CHAR(3) COMMENT "跨地区税收转移企业类型代码",
+`kdqsszyqylxmc` VARCHAR(75) COMMENT "跨地区税收转移企业类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '89.跨地区税收转移企业类型代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_TSNSRLX`;
+
+CREATE TABLE `LQ_DM_GY_TSNSRLX` (
+`tsnsrlxD_dm` CHAR(2) COMMENT "特殊纳税人类型代码",
+`tsnsrlxmc` VARCHAR(200) COMMENT "特殊纳税人类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`whqx` CHAR(30) COMMENT "维护权限||特殊纳税人类型表使用"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '90.特殊纳税人类型代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_DJ_SWZJZL`;
+
+CREATE TABLE `LQ_DM_DJ_SWZJZL` (
+`swzjzlDm` CHAR(6) COMMENT "税务证件种类代码",
+`swzjzlmc` VARCHAR(75) COMMENT "税务证件种类名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '91.税务证件种类代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_GJGHBJNZDRJHJCDLSJLY`;
+
+CREATE TABLE `LQ_DM_SB_GJGHBJNZDRJHJCDLSJLY` (
+`gjghbjnzdrjhjcdlsjlyDm` CHAR(3) COMMENT "国家规划布局内重点软件和集成电路设计领域代码",
+`gjghbjnzdrjhjcdlsjlymc` VARCHAR(600) COMMENT "国家规划布局内重点软件和集成电路设计领域名称",
+`sjgjghbjnzdrjhjcdlsjlyDm` CHAR(3) COMMENT "上级国家规划布局内重点软件和集成电路设计领域代码",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '92.国家规划布局内重点软件和集成电路设计领域代码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_QYSDSMBKSQYLX`;
+
+CREATE TABLE `LQ_DM_SB_QYSDSMBKSQYLX` (
+`qysdsmbksqylxDm` VARCHAR(3) COMMENT "企业所得税弥补亏损企业类型代码",
+`qysdsmbksqylxmc` VARCHAR(54) COMMENT "企业所得税弥补亏损企业类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '93.弥补亏损企业类型';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_ZQTZ`;
+
+CREATE TABLE `LQ_CS_GY_ZQTZ` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`yyyf` CHAR(6) COMMENT "应用月份||数据使用年月",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`nsqxDm` CHAR(2) COMMENT "纳税期限代码",
+`yzpzzlDm` CHAR(10) COMMENT "应征凭证种类代码",
+`syts` NUMBER(10,0) COMMENT "顺延天数||日期顺延天数",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '94.征期调整表';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_JJR`;
+
+CREATE TABLE `LQ_CS_GY_JJR` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`yyyf` CHAR(6) COMMENT "应用月份||数据使用年月",
+`xybz` CHAR(1) COMMENT "选用标志",
+`jjrbz` CHAR(1) COMMENT "节假日标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '95.节假日表';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_SBQXWH`;
+
+CREATE TABLE `LQ_CS_GY_SBQXWH` (
+`uuid` VARCHAR(32) COMMENT "参数编码",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`yyyf` CHAR(6) COMMENT "应用月份||数据使用年月",
+`sbqxDm` CHAR(2) COMMENT "申报期限代码",
+`jkqxDm` CHAR(2) COMMENT "缴款期限代码",
+`zclxfl` CHAR(1) COMMENT "注册类型分类||注册类型类别",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`hsbz` CHAR(1) COMMENT "汇算标记||区分汇算类型标记",
+`xybz` CHAR(1) COMMENT "选用标志",
+`nsqxDm` CHAR(2) COMMENT "纳税期限代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '96.申报期限维护表';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_ZSXMPMQXGZB_QG`;
+
+CREATE TABLE `LQ_CS_GY_ZSXMPMQXGZB_QG` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`nsqxDm` CHAR(2) COMMENT "纳税期限代码",
+`sbqxDm` CHAR(2) COMMENT "申报期限代码",
+`jkqxDm` CHAR(2) COMMENT "缴款期限代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`uuid` CHAR(32) COMMENT "UUID||uuid"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '97.全国征收项目品目期限规则表';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_ZSXMPMQXGZB_ZDY`;
+
+CREATE TABLE `LQ_CS_GY_ZSXMPMQXGZB_ZDY` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`zsxmDm` VARCHAR(5) COMMENT "征收项目代码",
+`zspmDm` CHAR(9) COMMENT "征收品目代码",
+`nsqxDm` CHAR(2) COMMENT "纳税期限代码",
+`sbqxDm` CHAR(2) COMMENT "申报期限代码",
+`jkqxDm` CHAR(2) COMMENT "缴款期限代码",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`uuid` VARCHAR(32) COMMENT "UUID||uuid"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '98.自定义征收项目品目期限规则表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_YWLC`;
+
+CREATE TABLE `LQ_DM_GY_YWLC` (
+`ywlcDm` CHAR(9) COMMENT "业务流程代码",
+`bz` VARCHAR(3000) COMMENT "备注",
+`gzlywbz` CHAR(1) COMMENT "工作流业务标志",
+`ywlcmc` VARCHAR(150) COMMENT "业务流程名称",
+`ywflDm` VARCHAR(3) COMMENT "业务分类代码",
+`yzqywbz` CHAR(1) COMMENT "依职权业务标志",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '99.业务流程代码';
+
+DROP TABLE IF EXISTS `LQ_CS_GY_XTCS`;
+
+CREATE TABLE `LQ_CS_GY_XTCS` (
+`csbm` CHAR(17) COMMENT "参数编码||7位系统编码（参见HX_CS_ZDY.dm_qx_zyydm）+6位业务流程编码（如果是公用的参数，则为六位零000000）+3位流水号；",
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`csz` VARCHAR(750) COMMENT "参数值",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '100.系统参数表';
+
+DROP TABLE IF EXISTS `LQ_DM_GY_XTCSBM`;
+
+CREATE TABLE `LQ_DM_GY_XTCSBM` (
+`csbm` CHAR(17) COMMENT "参数编码",
+`csmc` VARCHAR(120) COMMENT "参数名称",
+`cssm` VARCHAR(3000) COMMENT "参数说明",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志",
+`whqxbz` CHAR(1) COMMENT "维护权限标志||0:总局维护1:省局维护3:市局维护4:区县局维护",
+`cslxbz` CHAR(1) COMMENT "参数类型标志||0:技术参数,不需要客户采集1:业务参数,需要客户采集",
+`csqzsm` VARCHAR(600) COMMENT "参数取值说明",
+`cszkjlx` VARCHAR(10) COMMENT "参数值控件类型",
+`cszdydmb` VARCHAR(30) COMMENT "参数值对应代码表",
+`yxyl` VARCHAR(1500) COMMENT "影响用例",
+`bpzyx` VARCHAR(3000) COMMENT "不配置影响",
+`sfbxpz` CHAR(1) COMMENT "是否必须配置",
+`mrz` VARCHAR(750) COMMENT "默认值||默认值",
+`gdslxDm` CHAR(1) COMMENT "国地税类型代码"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '101.系统参数编码表';
+
+DROP TABLE IF EXISTS `LQ_DM_SB_MSDCLX`;
+
+CREATE TABLE `LQ_DM_SB_MSDCLX` (
+`msdclxDm` CHAR(2) COMMENT "免税电池类型代码",
+`msdclxmc` VARCHAR(150) COMMENT "免税电池类型名称",
+`yxbz` CHAR(1) COMMENT "有效标志",
+`xybz` CHAR(1) COMMENT "选用标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '102.免税电池类型代码表';
+
+DROP TABLE IF EXISTS `LQ_CS_SB_XFSSLPZB`;
+
+CREATE TABLE `LQ_CS_SB_XFSSLPZB` (
+`swjgDm` CHAR(11) COMMENT "税务机关代码",
+`zspmDm` CHAR(5) COMMENT "征收品目代码",
+`jldwDm` CHAR(4) COMMENT "计量单位代码",
+`jldwmc` VARCHAR(300) COMMENT "计量单位名称",
+`desl` NUMBER(16,6) COMMENT "定额税率",
+`blsl` NUMBER(16,6) COMMENT "比例税率",
+`sffswtjgyw` CHAR(1) COMMENT "是否发生委托加工业务",
+`sfkydk` CHAR(1) COMMENT "是否可以抵扣",
+`sffsmssx` CHAR(1) COMMENT "是否发生免税事项"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '103.应税消费品名称、税率和计量单位对照表';
+
+DROP TABLE IF EXISTS `LQ_DM_FP_DKFPJMSLX`;
+
+CREATE TABLE `LQ_DM_FP_DKFPJMSLX` (
+`dkfpjmslxDm` VARCHAR(5) COMMENT "代开发票减免税类型代码",
+`dkfpjmslxmc` VARCHAR(750) COMMENT "代开发票减免税类型名称",
+`xybz` CHAR(1) COMMENT "选用标志",
+`yxbz` CHAR(1) COMMENT "有效标志"
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '104.代开发票减免税类型代码表';
+

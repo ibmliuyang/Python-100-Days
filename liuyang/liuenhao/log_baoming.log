@@ -1,0 +1,66 @@
+2024-07-13 10:38:18,261 - INFO - 2024-07-13 10:38:18
+2024-07-13 10:38:18,261 - INFO - 报名了！！: <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>未到报名时间，请耐心等待</title>
+    <style type="text/css">
+    body,
+    html,
+    div {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+
+        background-color: ##edf2fd;
+    }
+    .main {
+        width: 100%;
+        height: calc(100vh - 234px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .banner {
+        background: url(images/banner.jpg) no-repeat top center;
+        width: 100%;
+        background-size: 100% 100%;
+        height: 234px;
+    }
+    .logo {
+        position: absolute;
+        top: 80px;
+        text-align: center;
+        width: 100%
+    }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="logo">
+            <img src="images/logo.png">
+        </div>
+    </div>
+    <div class="main">
+        <img src="images/time.png" style="width: 40%"></div>
+</body>
+
+</html>
+
+2024-07-17 10:54:51,903 - INFO - 2024-07-17 10:54:51
+2024-07-17 10:54:51,905 - INFO - 报名了！！: {
+	"code":"201",
+	"data":null,
+	"msg":"未到电脑随机派位结果公示时间，请耐心等待",
+	"result":""
+}
+2024-07-17 10:56:04,916 - INFO - 2024-07-17 10:56:04
+2024-07-17 10:56:07,949 - INFO - 报名了！！: {
+	"code":"201",
+	"data":null,
+	"msg":"未到电脑随机派位结果公示时间，请耐心等待",
+	"result":""
+}
