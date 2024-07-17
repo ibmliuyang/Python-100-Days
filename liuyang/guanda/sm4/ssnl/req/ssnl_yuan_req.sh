@@ -1,0 +1,2 @@
+curl --request POST 'https://lqpt.guangdong.chinatax.gov.cn:8443/access/sandbox/v2/invoke/206003/CXZZSYBNSRSSXGYWSJ' --header 'ylbm: 206003' --header 'nlbm: 206003' --header 'sydwptbh: 5d2cff003e35abb0603f' --header 'jrdwptbh: 5d2cff003e35abb0603f' --header 'fwbm: CXZZSYBNSRSSXGYWSJ' --header 'Content-Type: application/json' -d '{"djxh":"10114401000131420223", "skssqq":"2024-05-01", "skssqz":"2024-05-31"}' > CXZZSYBNSRSSXGYWSJ_had.txt
+sleep 8
