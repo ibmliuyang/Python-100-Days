@@ -29,7 +29,7 @@ def write_decrypted_to_file(output_path, decrypted_texts):
 
 
 if __name__ == '__main__':
-    input_file = 'dmb/dmb104_mi_req.sh'
+    input_file = 'dmb/req/sh/dmb104_mi_req.sh'
     output_file = 'dmb/dmb104_yuanwen_req.sh'
     sm4_key = '6707af3a3a7bc393ad4a547a5694c85f'  # 请替换为实际的 SM4 密钥
 
