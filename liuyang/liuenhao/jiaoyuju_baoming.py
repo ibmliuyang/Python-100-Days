@@ -34,8 +34,7 @@ while True:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
         }
-        url = 'https://sjzzs.shidajy.com/smsySchoolApi/assignAdmissions/getSchoolList'
-
+        url = 'https://sjzzs.shidajy.com/smsySchoolApi/assignAdmissions/getSchoolList?areaId=22&period=2&schoolName=&pageNum=1'
         response = requests.get(url, headers=headers)
         response.encoding = 'utf-8'
         content = response.text
