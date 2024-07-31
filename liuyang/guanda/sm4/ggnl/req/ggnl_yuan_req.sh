@@ -1,6 +1,9 @@
-curl --request POST 'https://lqpt.guangdong.chinatax.gov.cn:8443/access/sandbox/v2/invoke/206001/SBCXNSRJBXX' --header 'ylbm: 206001' --header 'nlbm: 206001' --header 'sydwptbh: 5d2cff003e35abb0603f' --header 'jrdwptbh: 5d2cff003e35abb0603f' --header 'fwbm: SBCXNSRJBXX' --header 'Content-Type: application/json' -d '{"nsrsbh":"914400007578948436"}' > SBCXNSRJBXX_had.txt
+curl  -d '{"nsrsbh":"91110000100011743X","ssjswjgDm":"11100000000"}' > SBCXNSRJBXX_had.txt
+curl  -d '{"nsrsbh":"91110000100011743X","ssjswjgDm":"11100000000"}' > SBCXNSRJBXX_had.txt
+
+curl --request POST 'https://lqpt.guangdong.chinatax.gov.cn:8443/access/sandbox/v2/invoke/206001/SBCXNSRJBXX' --header 'ylbm: 206001' --header 'nlbm: 206001' --header 'sydwptbh: 5d2cff003e35abb0603f' --header 'jrdwptbh: 5d2cff003e35abb0603f' --header 'fwbm: SBCXNSRJBXX' --header 'Content-Type: application/json' -d '{"nsrsbh":"91110000100011743X"}' > SBCXNSRJBXX_had.txt
 sleep 8
-curl --request POST 'https://lqpt.guangdong.chinatax.gov.cn:8443/access/sandbox/v2/invoke/206001/CXNSRQTXX' --header 'ylbm: 206001' --header 'nlbm: 206001' --header 'sydwptbh: 5d2cff003e35abb0603f' --header 'jrdwptbh: 5d2cff003e35abb0603f' --header 'fwbm: CXNSRQTXX' --header 'Content-Type: application/json' -d '{"djxh": "10115105000066881849","skssqq": "2024-06-01","skssqz": "2024-06-30"}' > CXNSRQTXX_had.txt
+curl --request POST 'https://lqpt.guangdong.chinatax.gov.cn:8443/access/sandbox/v2/invoke/206001/CXNSRQTXX' --header 'ylbm: 206001' --header 'nlbm: 206001' ' --header 'fwbm: CXNSRQTXX' --header 'Content-Type: application/json' -d '{"djxh": "10115105000066881849","skssqq": "2024-06-01","skssqz": "2024-06-30"}' > CXNSRQTXX_had.txt
 sleep 8
 curl --request POST 'https://lqpt.guangdong.chinatax.gov.cn:8443/access/sandbox/v2/invoke/206001/CXDMBSJ' --header 'ylbm: 206001' --header 'nlbm: 206001' --header 'sydwptbh: 5d2cff003e35abb0603f' --header 'jrdwptbh: 5d2cff003e35abb0603f' --header 'fwbm: CXDMBSJ' --header 'Content-Type: application/json' -d '{"dmbywmc": "LQ_DM_SB_TDXZ"}' > CXDMBSJ_had.txt
 sleep 8

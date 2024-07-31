@@ -28,13 +28,17 @@ class SM4Util:
         return unpadded_data.decode('utf-8')
 
     def dec(data):
-        hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
+        # hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应 海大
+        hex_key = "8d206a83e1352874d12a16cc6a4a8332"
+#        hex_key = "8d206a83e1352874d12a16cc6a4a8332"  # 光大
         sm4 = SM4Util(hex_key)
         text = sm4.decrypt_ecb(data)
         return text
 
     def enc(data):
-        hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
+        # hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应 海大
+        hex_key = "8d206a83e1352874d12a16cc6a4a8332"
+#        hex_key = "8d206a83e1352874d12a16cc6a4a8332"  # 光大
         sm4 = SM4Util(hex_key)
         text = sm4.encrypt_ecb(data)
         return text
@@ -42,15 +46,18 @@ class SM4Util:
 
 # 测试
 if __name__ == "__main__":
-    hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应
+    #hex_key = "6707af3a3a7bc393ad4a547a5694c85f"  # 16进制密钥，与Java中的hexKey相对应 海大
+    #hex_key = "8d206a83e1352874d12a16cc6a4a8332"  # 光大
+    hex_key = "8d206a83e1352874d12a16cc6a4a8332"
     sm4 = SM4Util(hex_key)
 
-    plaintext = '{"nsrsbh":"914400007578948436"}'
+    plaintext = '{"nsrsbh":"91110000100011743X","ssjswjgDm":"11100000000"}'
+
     encrypted_text = sm4.encrypt_ecb(plaintext)
     decrypted_text = sm4.decrypt_ecb(encrypted_text)
 
 
     decrypted_text = sm4.decrypt_ecb(encrypted_text)
   #  print("Original Text:", plaintext)
-   # print("Encrypted Text:", encrypted_text)
+    print("Encrypted Text:", encrypted_text)
     print("Decrypted Text:", decrypted_text)
