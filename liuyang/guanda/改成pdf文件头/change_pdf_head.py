@@ -18,23 +18,44 @@ for filename in os.listdir(folder_path):
     if os.path.isfile(file_path):
         # 打开文件，以二进制模式读写
         with open(file_path, 'r+b') as file:
-            # 移动文件指针到文件开头
-            file.seek(0)
+            # 获取文件的原始大小
+            original_size = os.path.getsize(file_path)
 
-            # 写入二进制数据
-            file.write(binary_data)
+            # 如果 binary_data 的长度大于原始文件大小，我们需要先读取文件的所有内容
+            if len(binary_data) >= original_size:
+                # 读取文件的全部内容
+                file_content = file.read()
 
-            # 获取当前文件指针的位置
-            current_position = file.tell()
+                # 将文件指针移到文件开头
+                file.seek(0)
 
-            # 读取文件的剩余部分
-            original_data = file.read()
+                # 写入二进制数据
+                file.write(binary_data)
 
-            # 将文件指针移回到写入二进制数据后的位置
-            file.seek(len(binary_data))
+                # 将文件指针移到 binary_data 结束的位置
+                file.seek(len(binary_data))
 
-            # 将原来的文件数据写回文件
-            file.write(original_data)
+                # 将原来的文件数据写回文件
+                file.write(file_content)
+            else:
+                # 如果 binary_data 的长度小于原始文件大小，我们只需写入 binary_data
+                # 移动文件指针到文件开头
+                file.seek(0)
+
+                # 写入二进制数据
+                file.write(binary_data)
+
+                # 获取当前文件指针的位置
+                current_position = file.tell()
+
+                # 读取文件的剩余部分
+                original_data = file.read()
+
+                # 将文件指针移回到写入二进制数据后的位置
+                file.seek(len(binary_data))
+
+                # 将原来的文件数据写回文件
+                file.write(original_data)
 
             # 获取文件的新大小
             new_size = os.path.getsize(file_path)
