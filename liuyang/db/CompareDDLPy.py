@@ -39,7 +39,7 @@ def get_table_columns(db_name):
     try:
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
             query = """
-            SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE, CHARACTER_MAXIMUM_LENGTH
+            SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE, CHARACTER_MAXIMUM_LENGTH, COLUMN_COMMENT
             FROM information_schema.COLUMNS
             WHERE TABLE_SCHEMA = %s;
             """
@@ -71,9 +71,14 @@ def compare_databases(old_db_name, new_db_name):
             data_type = value['DATA_TYPE']
             is_nullable = value['IS_NULLABLE']
             char_max_length = value['CHARACTER_MAXIMUM_LENGTH']
-            if char_max_length:
-                data_type += f'({char_max_length})'
-            columns.append(f'{column_name} {data_type} {is_nullable}')
+            column_comment = value['COLUMN_COMMENT'] if 'COLUMN_COMMENT' in value else ''
+            if data_type.startswith('varchar') and char_max_length:
+                data_type = f'varchar({char_max_length})'
+            nullable_str = 'NULL' if is_nullable == 'YES' else 'NOT NULL'
+            column_def = f'{column_name} {data_type} {nullable_str}'
+            if column_comment:
+                column_def += f" COMMENT '{column_comment}'"
+            columns.append(column_def)
         columns_sql = ', '.join(columns)
         new_table_ddl.append(f'CREATE TABLE {table_name} ({columns_sql});')
 
@@ -89,18 +94,26 @@ def compare_databases(old_db_name, new_db_name):
             data_type = new_col['DATA_TYPE']
             is_nullable = new_col['IS_NULLABLE']
             char_max_length = new_col['CHARACTER_MAXIMUM_LENGTH']
-            if char_max_length:
-                data_type = data_type.split('(')[0]  # 提取基本数据类型
+            column_comment = new_col['COLUMN_COMMENT'] if 'COLUMN_COMMENT' in new_col else ''
+            if data_type.startswith('varchar') and char_max_length:
+                data_type = f'varchar({char_max_length})'
+            nullable_str = 'NULL' if is_nullable == 'YES' else 'NOT NULL'
+            column_def = f'{column_name} {data_type} {nullable_str}'
+            if column_comment:
+                column_def += f" COMMENT '{column_comment}'"
 
             old_col = old_table_cols[old_table_cols['COLUMN_NAME'] == column_name]
             if old_col.empty:
-                common_table_ddl.append(f'ALTER TABLE {table_name} ADD COLUMN {column_name} {data_type} {is_nullable};')
+                common_table_ddl.append(f'ALTER TABLE {table_name} ADD COLUMN {column_def};')
             else:
-                old_type = old_col['DATA_TYPE'].values[0].split('(')[0]  # 提取基本数据类型
-                old_nullable = old_col['IS_NULLABLE'].values[0]  # 定义old_nullable
-                if (old_type!= data_type or old_nullable!= is_nullable) or (
+                old_type = old_col['DATA_TYPE'].values[0]
+                if old_type.startswith('varchar') and '(' not in old_type and char_max_length:
+                    old_type = f'varchar({char_max_length})'
+                old_nullable = old_col['IS_NULLABLE'].values[0]
+                old_nullable_str = 'NULL' if old_nullable == 'YES' else 'NOT NULL'
+                if (old_type!= data_type or old_nullable_str!= nullable_str) or (
                         char_max_length is not None and old_col['CHARACTER_MAXIMUM_LENGTH'].values[0]!= char_max_length):
-                    common_table_ddl.append(f'ALTER TABLE {table_name} MODIFY COLUMN {column_name} {data_type} {is_nullable};')
+                    common_table_ddl.append(f'ALTER TABLE {table_name} MODIFY COLUMN {column_def};')
 
     return new_table_ddl + common_table_ddl
 
