@@ -74,10 +74,14 @@ def compare_tables(old_db_name, new_db_name, table_name):
             insert_sql = f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
             insert_sqls.append(insert_sql)
         else:
-            columns = ', '.join(new_df.columns)
-            values = ', '.join([f'"{value}"' if isinstance(value, str) else str(value) for value in new_row])
-            replace_sql = f"REPLACE INTO {table_name} ({columns}) VALUES ({values})"
-            replace_sqls.append(replace_sql)
+            old_row = old_df[old_df[id_column] == new_id]
+            # 检查除id外其他字段是否相同
+            other_columns = [col for col in new_df.columns if col!= id_column]
+            if not old_row[other_columns].equals(new_df[other_columns].loc[new_row.name]):
+                columns = ', '.join(new_df.columns)
+                values = ', '.join([f'"{value}"' if isinstance(value, str) else str(value) for value in new_row])
+                replace_sql = f"REPLACE INTO {table_name} ({columns}) VALUES ({values})"
+                replace_sqls.append(replace_sql)
 
     return insert_sqls, replace_sqls
 
