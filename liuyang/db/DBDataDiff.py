@@ -51,6 +51,36 @@ def get_table_data(db_name, table_name):
         conn.close()
 
 
+def get_primary_key(db_name, table_name):
+    db_config = read_db_config(db_name)
+    conn = pymysql.connect(
+        host=db_config.get('host', 'localhost'),
+        user=db_config.get('user', 'root'),
+        password=db_config.get('password', ''),
+        database='information_schema',
+        port=db_config['port'],
+        charset='utf8mb4'
+    )
+
+    try:
+        query = f"""
+            SELECT COLUMN_NAME
+            FROM KEY_COLUMN_USAGE
+            WHERE TABLE_SCHEMA = '{db_name}'
+            AND TABLE_NAME = '{table_name}'
+            AND CONSTRAINT_NAME = 'PRIMARY'
+        """
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchone()
+            if result:
+                return result[0]
+            else:
+                raise Exception(f"Primary key not found for table {table_name} in database {db_name}")
+    finally:
+        conn.close()
+
+
 def compare_tables(old_db_name, new_db_name, table_name):
     old_df = get_table_data(old_db_name, table_name)
     new_df = get_table_data(new_db_name, table_name)
@@ -58,10 +88,9 @@ def compare_tables(old_db_name, new_db_name, table_name):
     insert_sqls = []
     replace_sqls = []
 
-    # 假设id字段名为id，实际使用时需根据表结构调整
-    id_column = 'id'
+    id_column = get_primary_key(old_db_name, table_name)
     if id_column not in old_df.columns or id_column not in new_df.columns:
-        raise Exception(f"Table {table_name} does not have an 'id' column.")
+        raise Exception(f"Table {table_name} does not have the expected primary key column {id_column}")
 
     old_ids = set(old_df[id_column])
     new_ids = set(new_df[id_column])
