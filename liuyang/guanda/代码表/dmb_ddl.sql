@@ -1,4 +1,4 @@
-drop table if exists EXISTS lq_dm_gy_dzbzdszl;
+drop table if exists lq_dm_gy_dzbzdszl;
 
 create table lq_dm_gy_dzbzdszl (
 dzbzdszl_id varchar(64), 
@@ -33,7 +33,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:1.电子类表证单书种类代码表';
 
-drop table if exists EXISTS lq_dm_gy_nsrzt;
+drop table if exists lq_dm_gy_nsrzt;
 
 create table lq_dm_gy_nsrzt (
 nsrzt_id varchar(64), 
@@ -64,7 +64,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:2.纳税人状态代码表';
 
-drop table if exists EXISTS lq_dm_dj_djzclx;
+drop table if exists lq_dm_dj_djzclx;
 
 create table lq_dm_dj_djzclx (
 djzclx_id varchar(64), 
@@ -99,7 +99,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:3.登记注册类型代码表';
 
-drop table if exists EXISTS lq_dm_dj_kzztdjlx;
+drop table if exists lq_dm_dj_kzztdjlx;
 
 create table lq_dm_dj_kzztdjlx (
 kzztdjlx_id varchar(64), 
@@ -130,7 +130,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:4.课征主体类型代码';
 
-drop table if exists EXISTS lq_dm_gy_hy;
+drop table if exists lq_dm_gy_hy;
 
 create table lq_dm_gy_hy (
 hy_id varchar(64), 
@@ -166,7 +166,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:5.行业代码表';
 
-drop table if exists EXISTS lq_dm_gy_swjg;
+drop table if exists lq_dm_gy_swjg;
 
 create table lq_dm_gy_swjg (
 swjg_id varchar(64), 
@@ -199,7 +199,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:6.税务机关代码';
 
-drop table if exists EXISTS lq_dm_gy_gjhdq;
+drop table if exists lq_dm_gy_gjhdq;
 
 create table lq_dm_gy_gjhdq (
 gjhdq_id varchar(64), 
@@ -235,7 +235,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:7.国家和地区代码表';
 
-drop table if exists EXISTS lq_dm_gy_xzqh;
+drop table if exists lq_dm_gy_xzqh;
 
 create table lq_dm_gy_xzqh (
 xzqh_id varchar(64), 
@@ -271,10 +271,10 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:8.行政区划代码';
 
-drop table if exists EXISTS lq_cs_dj_jdxzxzqhdzb（新电局）;
+drop table if exists lq_cs_dj_jdxzxzqhdzb;
 
-create table lq_cs_dj_jdxzxzqhdzb（新电局） (
-jdxzxzqhdzb（新电局）_id varchar(64), 
+create table lq_cs_dj_jdxzxzqhdzb (
+jdxzxzqhdzb_id varchar(64), 
 gdslxDm CHAR(1) COMMENT "国地税类型代码",
 jdxzDm CHAR(9) COMMENT "街道乡镇代码",
 xzqhszDm CHAR(6) COMMENT "行政区划数字代码",
@@ -303,7 +303,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:9.街道乡镇行政区划对照表';
 
-drop table if exists EXISTS lq_dm_gy_jdxz;
+drop table if exists lq_dm_gy_jdxz;
 
 create table lq_dm_gy_jdxz (
 jdxz_id varchar(64), 
@@ -335,10 +335,10 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:10.街道乡镇代码';
 
-drop table if exists EXISTS lq_cs_gy_jdxzswjgdzb（新电局）;
+drop table if exists lq_cs_gy_jdxzswjgdzb;
 
-create table lq_cs_gy_jdxzswjgdzb（新电局） (
-jdxzswjgdzb（新电局）_id varchar(64), 
+create table lq_cs_gy_jdxzswjgdzb (
+jdxzswjgdzb_id varchar(64), 
 jdxzDm CHAR(9) COMMENT "街道乡镇代码",
 swjgDm CHAR(11) COMMENT "税务机关代码",
 yxbz CHAR(1) COMMENT "有效标志",
@@ -368,7 +368,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:11.街道乡镇税务机关对照表';
 
-drop table if exists EXISTS lq_dm_gy_kjzdzz;
+drop table if exists lq_dm_gy_kjzdzz;
 
 create table lq_dm_gy_kjzdzz (
 kjzdzz_id varchar(64), 
@@ -400,7 +400,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:12.会计制度（准则）代码表';
 
-drop table if exists EXISTS lq_dm_gy_dwlsgx;
+drop table if exists lq_dm_gy_dwlsgx;
 
 create table lq_dm_gy_dwlsgx (
 dwlsgx_id varchar(64), 
@@ -432,7 +432,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:13.单位隶属关系代码';
 
-drop table if exists EXISTS lq_dm_gy_sfzjlx;
+drop table if exists lq_dm_gy_sfzjlx;
 
 create table lq_dm_gy_sfzjlx (
 sfzjlx_id varchar(64), 
@@ -463,7 +463,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:14.身份证件类型代码';
 
-drop table if exists EXISTS lq_dm_gy_zsxm;
+drop table if exists lq_dm_gy_zsxm;
 
 create table lq_dm_gy_zsxm (
 zsxm_id varchar(64), 
@@ -496,7 +496,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:15.征收项目代码表';
 
-drop table if exists EXISTS lq_dm_gy_zspm;
+drop table if exists lq_dm_gy_zspm;
 
 create table lq_dm_gy_zspm (
 zspm_id varchar(64), 
@@ -536,7 +536,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:16.征收品目代码';
 
-drop table if exists EXISTS lq_cs_gy_glb_zspm;
+drop table if exists lq_cs_gy_glb_zspm;
 
 create table lq_cs_gy_glb_zspm (
 zspm_id varchar(64), 
@@ -572,7 +572,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:17.征收品目关联表';
 
-drop table if exists EXISTS lq_dm_gy_zszm;
+drop table if exists lq_dm_gy_zszm;
 
 create table lq_dm_gy_zszm (
 zszm_id varchar(64), 
@@ -608,7 +608,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:18.征收子目代码';
 
-drop table if exists EXISTS lq_dm_sb_sbsx;
+drop table if exists lq_dm_sb_sbsx;
 
 create table lq_dm_sb_sbsx (
 sbsx_id varchar(64), 
@@ -640,7 +640,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:19.申报属性代码表';
 
-drop table if exists EXISTS lq_dm_gy_sbfs;
+drop table if exists lq_dm_gy_sbfs;
 
 create table lq_dm_gy_sbfs (
 sbfs_id varchar(64), 
@@ -672,7 +672,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:20.申报方式代码';
 
-drop table if exists EXISTS lq_dm_gy_zsfs;
+drop table if exists lq_dm_gy_zsfs;
 
 create table lq_dm_gy_zsfs (
 zsfs_id varchar(64), 
@@ -704,7 +704,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:21.征收方式代码';
 
-drop table if exists EXISTS lq_dm_gy_zsdlfs;
+drop table if exists lq_dm_gy_zsdlfs;
 
 create table lq_dm_gy_zsdlfs (
 zsdlfs_id varchar(64), 
@@ -735,7 +735,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:22.征收代理方式代码';
 
-drop table if exists EXISTS lq_dm_zs_sksx;
+drop table if exists lq_dm_zs_sksx;
 
 create table lq_dm_zs_sksx (
 sksx_id varchar(64), 
@@ -766,7 +766,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:23.税款属性代码';
 
-drop table if exists EXISTS lq_dm_zs_skzl;
+drop table if exists lq_dm_zs_skzl;
 
 create table lq_dm_zs_skzl (
 skzl_id varchar(64), 
@@ -797,7 +797,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:24.税款种类代码';
 
-drop table if exists EXISTS lq_dm_gy_sbqx;
+drop table if exists lq_dm_gy_sbqx;
 
 create table lq_dm_gy_sbqx (
 sbqx_id varchar(64), 
@@ -829,7 +829,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:25.申报期限代码';
 
-drop table if exists EXISTS lq_dm_gy_nsqx;
+drop table if exists lq_dm_gy_nsqx;
 
 create table lq_dm_gy_nsqx (
 nsqx_id varchar(64), 
@@ -860,7 +860,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:26.纳税期限代码';
 
-drop table if exists EXISTS lq_dm_gy_jkqx;
+drop table if exists lq_dm_gy_jkqx;
 
 create table lq_dm_gy_jkqx (
 jkqx_id varchar(64), 
@@ -892,7 +892,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:27.缴款期限代码';
 
-drop table if exists EXISTS lq_dm_zs_ttsflx;
+drop table if exists lq_dm_zs_ttsflx;
 
 create table lq_dm_zs_ttsflx (
 ttsflx_id varchar(64), 
@@ -923,7 +923,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:28.提退税（费）类型代码';
 
-drop table if exists EXISTS lq_dm_pz_pzzl;
+drop table if exists lq_dm_pz_pzzl;
 
 create table lq_dm_pz_pzzl (
 pzzl_id varchar(64), 
@@ -955,7 +955,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:29.票证种类代码';
 
-drop table if exists EXISTS lq_dm_fp_fpzt;
+drop table if exists lq_dm_fp_fpzt;
 
 create table lq_dm_fp_fpzt (
 fpzt_id varchar(64), 
@@ -986,7 +986,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:30.发票状态代码';
 
-drop table if exists EXISTS lq_dm_ss_gxdklx;
+drop table if exists lq_dm_ss_gxdklx;
 
 create table lq_dm_ss_gxdklx (
 gxdklx_id varchar(64), 
@@ -1017,7 +1017,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:31.勾选抵扣类型代码表';
 
-drop table if exists EXISTS lq_dm_dzfp_tdyslx;
+drop table if exists lq_dm_dzfp_tdyslx;
 
 create table lq_dm_dzfp_tdyslx (
 tdyslx_id varchar(64), 
@@ -1048,7 +1048,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:32.特定要素类型代码';
 
-drop table if exists EXISTS lq_dm_gy_swsx;
+drop table if exists lq_dm_gy_swsx;
 
 create table lq_dm_gy_swsx (
 swsx_id varchar(64), 
@@ -1083,7 +1083,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:33.税务事项代码';
 
-drop table if exists EXISTS lq_cs_yh_swsxjmxzdzb;
+drop table if exists lq_cs_yh_swsxjmxzdzb;
 
 create table lq_cs_yh_swsxjmxzdzb (
 swsxjmxzdzb_id varchar(64), 
@@ -1120,7 +1120,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:34.税务事项与减免性质对照表';
 
-drop table if exists EXISTS lq_dm_yh_ssyhlx;
+drop table if exists lq_dm_yh_ssyhlx;
 
 create table lq_dm_yh_ssyhlx (
 ssyhlx_id varchar(64), 
@@ -1152,7 +1152,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:35.税收优惠类型代码表';
 
-drop table if exists EXISTS lq_dm_yh_jmlx;
+drop table if exists lq_dm_yh_jmlx;
 
 create table lq_dm_yh_jmlx (
 jmlx_id varchar(64), 
@@ -1183,7 +1183,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:36.减免类型代码';
 
-drop table if exists EXISTS lq_dm_yh_jmfs;
+drop table if exists lq_dm_yh_jmfs;
 
 create table lq_dm_yh_jmfs (
 jmfs_id varchar(64), 
@@ -1214,7 +1214,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:37.减免方式代码';
 
-drop table if exists EXISTS lq_dm_gy_ssjmxz;
+drop table if exists lq_dm_gy_ssjmxz;
 
 create table lq_dm_gy_ssjmxz (
 ssjmxz_id varchar(64), 
@@ -1247,7 +1247,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:38.税收减免性质代码';
 
-drop table if exists EXISTS lq_dm_gy_ssjmxzdl;
+drop table if exists lq_dm_gy_ssjmxzdl;
 
 create table lq_dm_gy_ssjmxzdl (
 ssjmxzdl_id varchar(64), 
@@ -1278,7 +1278,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:39.税收减免性质大类代码表';
 
-drop table if exists EXISTS lq_dm_gy_ssjmxzxl;
+drop table if exists lq_dm_gy_ssjmxzxl;
 
 create table lq_dm_gy_ssjmxzxl (
 ssjmxzxl_id varchar(64), 
@@ -1309,7 +1309,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:40.税收减免性质小类代码';
 
-drop table if exists EXISTS lq_cs_gy_ssjmxzyjmzlxdzb;
+drop table if exists lq_cs_gy_ssjmxzyjmzlxdzb;
 
 create table lq_cs_gy_ssjmxzyjmzlxdzb (
 ssjmxzyjmzlxdzb_id varchar(64), 
@@ -1343,7 +1343,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:41.税收减免性质与减免征类型对照表';
 
-drop table if exists EXISTS lq_dm_yh_jmzlx;
+drop table if exists lq_dm_yh_jmzlx;
 
 create table lq_dm_yh_jmzlx (
 jmzlx_id varchar(64), 
@@ -1374,7 +1374,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:42.减免征类型代码';
 
-drop table if exists EXISTS lq_cs_gy_ssjmxzjmfdedslgx;
+drop table if exists lq_cs_gy_ssjmxzjmfdedslgx;
 
 create table lq_cs_gy_ssjmxzjmfdedslgx (
 ssjmxzjmfdedslgx_id varchar(64), 
@@ -1408,7 +1408,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:43.税收减免性质减免幅度、额度、税率关系表';
 
-drop table if exists EXISTS lq_dm_ss_jmsxm;
+drop table if exists lq_dm_ss_jmsxm;
 
 create table lq_dm_ss_jmsxm (
 jmsxm_id varchar(64), 
@@ -1439,7 +1439,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:44.减免税项目代码';
 
-drop table if exists EXISTS lq_dm_yh_jmxmdl;
+drop table if exists lq_dm_yh_jmxmdl;
 
 create table lq_dm_yh_jmxmdl (
 jmxmdl_id varchar(64), 
@@ -1470,7 +1470,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:45.减免项目大类代码表';
 
-drop table if exists EXISTS lq_dm_yh_jmxmxl;
+drop table if exists lq_dm_yh_jmxmxl;
 
 create table lq_dm_yh_jmxmxl (
 jmxmxl_id varchar(64), 
@@ -1501,7 +1501,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:46.减免项目小类代码表';
 
-drop table if exists EXISTS lq_cs_yh_xejmjmxzpzb;
+drop table if exists lq_cs_yh_xejmjmxzpzb;
 
 create table lq_cs_yh_xejmjmxzpzb (
 xejmjmxzpzb_id varchar(64), 
@@ -1536,7 +1536,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:47.限额减免减免性质配置表';
 
-drop table if exists EXISTS lq_cs_sb_phjmpzb;
+drop table if exists lq_cs_sb_phjmpzb;
 
 create table lq_cs_sb_phjmpzb (
 phjmpzb_id varchar(64), 
@@ -1568,7 +1568,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:48.普惠减免配置表';
 
-drop table if exists EXISTS lq_cs_sb_jzzcsyzt;
+drop table if exists lq_cs_sb_jzzcsyzt;
 
 create table lq_cs_sb_jzzcsyzt (
 jzzcsyzt_id varchar(64), 
@@ -1601,7 +1601,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:49.减征政策适用主体代码表';
 
-drop table if exists EXISTS lq_dm_ss_mtszc;
+drop table if exists lq_dm_ss_mtszc;
 
 create table lq_dm_ss_mtszc (
 mtszc_id varchar(64), 
@@ -1632,7 +1632,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:50.免退税政策代码';
 
-drop table if exists EXISTS lq_dm_ss_jsff;
+drop table if exists lq_dm_ss_jsff;
 
 create table lq_dm_ss_jsff (
 jsff_id varchar(64), 
@@ -1663,7 +1663,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:51.计税方法代码表';
 
-drop table if exists EXISTS lq_dm_ss_azzsjjdjkmlx;
+drop table if exists lq_dm_ss_azzsjjdjkmlx;
 
 create table lq_dm_ss_azzsjjdjkmlx (
 azzsjjdjkmlx_id varchar(64), 
@@ -1694,7 +1694,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:52.按增值税加计抵减科目类型代码';
 
-drop table if exists EXISTS lq_dm_ss_jxsezclx;
+drop table if exists lq_dm_ss_jxsezclx;
 
 create table lq_dm_ss_jxsezclx (
 jxsezclx_id varchar(64), 
@@ -1725,7 +1725,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:53.进项税额转出类型代码';
 
-drop table if exists EXISTS lq_dm_ss_ldsezt;
+drop table if exists lq_dm_ss_ldsezt;
 
 create table lq_dm_ss_ldsezt (
 ldsezt_id varchar(64), 
@@ -1756,7 +1756,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:54.留抵税额状态代码';
 
-drop table if exists EXISTS lq_dm_ss_nsjctzlx;
+drop table if exists lq_dm_ss_nsjctzlx;
 
 create table lq_dm_ss_nsjctzlx (
 nsjctzlx_id varchar(64), 
@@ -1787,7 +1787,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:55.纳税检查调整类型代码';
 
-drop table if exists EXISTS lq_dm_ss_ssgcwd;
+drop table if exists lq_dm_ss_ssgcwd;
 
 create table lq_dm_ss_ssgcwd (
 ssgcwd_id varchar(64), 
@@ -1830,7 +1830,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:56.算税过程维度代码';
 
-drop table if exists EXISTS lq_dm_ss_sspzfl;
+drop table if exists lq_dm_ss_sspzfl;
 
 create table lq_dm_ss_sspzfl (
 sspzfl_id varchar(64), 
@@ -1861,7 +1861,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:57.算税凭证分类代码';
 
-drop table if exists EXISTS lq_dm_ss_sssjqd;
+drop table if exists lq_dm_ss_sssjqd;
 
 create table lq_dm_ss_sssjqd (
 sssjqd_id varchar(64), 
@@ -1892,7 +1892,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:58.算税数据渠道代码';
 
-drop table if exists EXISTS lq_dm_ss_ssyspzlx;
+drop table if exists lq_dm_ss_ssyspzlx;
 
 create table lq_dm_ss_ssyspzlx (
 ssyspzlx_id varchar(64), 
@@ -1923,7 +1923,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:59.算税原始凭证类型代码';
 
-drop table if exists EXISTS lq_dm_ss_ssywlx;
+drop table if exists lq_dm_ss_ssywlx;
 
 create table lq_dm_ss_ssywlx (
 ssywlx_id varchar(64), 
@@ -1954,7 +1954,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:60.算税业务类型代码';
 
-drop table if exists EXISTS lq_dm_ss_ssywxw;
+drop table if exists lq_dm_ss_ssywxw;
 
 create table lq_dm_ss_ssywxw (
 ssywxw_id varchar(64), 
@@ -1985,7 +1985,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:61.算税业务行为代码';
 
-drop table if exists EXISTS lq_cs_ss_ssywlxyssyspzlxdz;
+drop table if exists lq_cs_ss_ssywlxyssyspzlxdz;
 
 create table lq_cs_ss_ssywlxyssyspzlxdz (
 ssywlxyssyspzlxdz_id varchar(64), 
@@ -2018,7 +2018,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:62.算税业务类型与算税原始凭证类型对照';
 
-drop table if exists EXISTS lq_dm_ss_ssmsbz;
+drop table if exists lq_dm_ss_ssmsbz;
 
 create table lq_dm_ss_ssmsbz (
 ssmsbz_id varchar(64), 
@@ -2049,7 +2049,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:63.算税免税标志代码';
 
-drop table if exists EXISTS lq_dm_ss_zzsyjlx;
+drop table if exists lq_dm_ss_zzsyjlx;
 
 create table lq_dm_ss_zzsyjlx (
 zzsyjlx_id varchar(64), 
@@ -2080,7 +2080,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:64.增值税预缴类型代码';
 
-drop table if exists EXISTS lq_dm_sb_sdjmyhsxmc;
+drop table if exists lq_dm_sb_sdjmyhsxmc;
 
 create table lq_dm_sb_sdjmyhsxmc (
 sdjmyhsxmc_id varchar(64), 
@@ -2112,7 +2112,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:65.特定项目所得减免优惠事项名称代码表';
 
-drop table if exists EXISTS lq_dm_gy_yhhb;
+drop table if exists lq_dm_gy_yhhb;
 
 create table lq_dm_gy_yhhb (
 yhhb_id varchar(64), 
@@ -2144,7 +2144,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:66.银行行别代码';
 
-drop table if exists EXISTS lq_dm_gy_yhyywd;
+drop table if exists lq_dm_gy_yhyywd;
 
 create table lq_dm_gy_yhyywd (
 yhyywd_id varchar(64), 
@@ -2177,7 +2177,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:67.银行营业网点代码';
 
-drop table if exists EXISTS lq_dm_ss_spbmdl;
+drop table if exists lq_dm_ss_spbmdl;
 
 create table lq_dm_ss_spbmdl (
 spbmdl_id varchar(64), 
@@ -2208,10 +2208,10 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:68.商品编码大类代码';
 
-drop table if exists EXISTS lq_cs_sb_xfsspbmysmdy（待定）;
+drop table if exists lq_cs_sb_xfsspbmysmdy;
 
-create table lq_cs_sb_xfsspbmysmdy（待定） (
-xfsspbmysmdy（待定）_id varchar(64), 
+create table lq_cs_sb_xfsspbmysmdy (
+xfsspbmysmdy_id varchar(64), 
 sphfwssflbm DECIMAL(20) COMMENT "商品和服务税收分类编码",
 zspmDm CHAR(9) COMMENT "征收品目代码",
 yxws DECIMAL(20) COMMENT "有效位数",
@@ -2240,7 +2240,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:69.商品编码与税目对照表';
 
-drop table if exists EXISTS lq_cs_ss_spbmyjmxzdzb;
+drop table if exists lq_cs_ss_spbmyjmxzdzb;
 
 create table lq_cs_ss_spbmyjmxzdzb (
 spbmyjmxzdzb_id varchar(64), 
@@ -2273,7 +2273,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:70.商品编码与减免性质对照表';
 
-drop table if exists EXISTS lq_dm_gy_jldw;
+drop table if exists lq_dm_gy_jldw;
 
 create table lq_dm_gy_jldw (
 jldw_id varchar(64), 
@@ -2309,7 +2309,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:71.计量单位代码表';
 
-drop table if exists EXISTS lq_cs_ss_jldwhsb;
+drop table if exists lq_cs_ss_jldwhsb;
 
 create table lq_cs_ss_jldwhsb (
 jldwhsb_id varchar(64), 
@@ -2344,7 +2344,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:72.计量单位换算表';
 
-drop table if exists EXISTS lq_cs_ss_xfspmyhydzb;
+drop table if exists lq_cs_ss_xfspmyhydzb;
 
 create table lq_cs_ss_xfspmyhydzb (
 xfspmyhydzb_id varchar(64), 
@@ -2375,7 +2375,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:73.消费税品目与行业对照表';
 
-drop table if exists EXISTS lq_cs_ss_xfspmyjldwdzb;
+drop table if exists lq_cs_ss_xfspmyjldwdzb;
 
 create table lq_cs_ss_xfspmyjldwdzb (
 xfspmyjldwdzb_id varchar(64), 
@@ -2409,7 +2409,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:74.消费税品目与计量单位对照表';
 
-drop table if exists EXISTS lq_cs_ss_spbmxfspmhkcfsdzb;
+drop table if exists lq_cs_ss_spbmxfspmhkcfsdzb;
 
 create table lq_cs_ss_spbmxfspmhkcfsdzb (
 spbmxfspmhkcfsdzb_id varchar(64), 
@@ -2442,7 +2442,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:75.商品编码、消费税品目和扣除方式对照表';
 
-drop table if exists EXISTS lq_dm_ss_kcfs;
+drop table if exists lq_dm_ss_kcfs;
 
 create table lq_dm_ss_kcfs (
 kcfs_id varchar(64), 
@@ -2473,7 +2473,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:76.扣除方式代码';
 
-drop table if exists EXISTS lq_dm_sb_jylb;
+drop table if exists lq_dm_sb_jylb;
 
 create table lq_dm_sb_jylb (
 jylb_id varchar(64), 
@@ -2504,7 +2504,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:77.卷烟类别代码';
 
-drop table if exists EXISTS lq_dm_sb_jylx;
+drop table if exists lq_dm_sb_jylx;
 
 create table lq_dm_sb_jylx (
 jylx_id varchar(64), 
@@ -2535,7 +2535,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:78.卷烟类型代码';
 
-drop table if exists EXISTS lq_dm_sb_fcyt;
+drop table if exists lq_dm_sb_fcyt;
 
 create table lq_dm_sb_fcyt (
 fcyt_id varchar(64), 
@@ -2566,7 +2566,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:79.房产用途代码';
 
-drop table if exists EXISTS lq_dm_sb_fcsnsrlx;
+drop table if exists lq_dm_sb_fcsnsrlx;
 
 create table lq_dm_sb_fcsnsrlx (
 fcsnsrlx_id varchar(64), 
@@ -2597,7 +2597,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:80.房产纳税人类型代码';
 
-drop table if exists EXISTS lq_cs_sb_ftc_mrqxgz;
+drop table if exists lq_cs_sb_ftc_mrqxgz;
 
 create table lq_cs_sb_ftc_mrqxgz (
 mrqxgz_id varchar(64), 
@@ -2635,7 +2635,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:81.房土车默认期限规则代码';
 
-drop table if exists EXISTS lq_cs_dj_fcyzkclszb;
+drop table if exists lq_cs_dj_fcyzkclszb;
 
 create table lq_cs_dj_fcyzkclszb (
 fcyzkclszb_id varchar(64), 
@@ -2666,7 +2666,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:82.房产原值扣除率设置表';
 
-drop table if exists EXISTS lq_dm_sb_tdyt;
+drop table if exists lq_dm_sb_tdyt;
 
 create table lq_dm_sb_tdyt (
 tdyt_id varchar(64), 
@@ -2697,7 +2697,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:83.土地用途代码表';
 
-drop table if exists EXISTS lq_dm_sb_tdqdfs;
+drop table if exists lq_dm_sb_tdqdfs;
 
 create table lq_dm_sb_tdqdfs (
 tdqdfs_id varchar(64), 
@@ -2728,7 +2728,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:84.土地取得方式代码表';
 
-drop table if exists EXISTS lq_dm_sb_tdxz;
+drop table if exists lq_dm_sb_tdxz;
 
 create table lq_dm_sb_tdxz (
 tdxz_id varchar(64), 
@@ -2759,7 +2759,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:85.土地性质代码表';
 
-drop table if exists EXISTS lq_dm_dj_tddj;
+drop table if exists lq_dm_dj_tddj;
 
 create table lq_dm_dj_tddj (
 tddj_id varchar(64), 
@@ -2791,7 +2791,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:86.土地等级代码表';
 
-drop table if exists EXISTS lq_cs_dj_tddjzspmdzb;
+drop table if exists lq_cs_dj_tddjzspmdzb;
 
 create table lq_cs_dj_tddjzspmdzb (
 tddjzspmdzb_id varchar(64), 
@@ -2823,7 +2823,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:87.土地等级征收品目对照表';
 
-drop table if exists EXISTS lq_cs_dj_tddwseszb;
+drop table if exists lq_cs_dj_tddwseszb;
 
 create table lq_cs_dj_tddwseszb (
 tddwseszb_id varchar(64), 
@@ -2857,7 +2857,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:88.土地单位税额设置表';
 
-drop table if exists EXISTS lq_dm_dj_kdqsszyqylx;
+drop table if exists lq_dm_dj_kdqsszyqylx;
 
 create table lq_dm_dj_kdqsszyqylx (
 kdqsszyqylx_id varchar(64), 
@@ -2888,7 +2888,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:89.跨地区税收转移企业类型代码表';
 
-drop table if exists EXISTS lq_dm_gy_tsnsrlx;
+drop table if exists lq_dm_gy_tsnsrlx;
 
 create table lq_dm_gy_tsnsrlx (
 tsnsrlx_id varchar(64), 
@@ -2920,7 +2920,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:90.特殊纳税人类型代码表';
 
-drop table if exists EXISTS lq_dm_dj_swzjzl;
+drop table if exists lq_dm_dj_swzjzl;
 
 create table lq_dm_dj_swzjzl (
 swzjzl_id varchar(64), 
@@ -2951,7 +2951,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:91.税务证件种类代码表';
 
-drop table if exists EXISTS lq_dm_sb_gjghbjnzdrjhjcdlsjly;
+drop table if exists lq_dm_sb_gjghbjnzdrjhjcdlsjly;
 
 create table lq_dm_sb_gjghbjnzdrjhjcdlsjly (
 gjghbjnzdrjhjcdlsjly_id varchar(64), 
@@ -2983,7 +2983,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:92.国家规划布局内重点软件和集成电路设计领域代码表';
 
-drop table if exists EXISTS lq_dm_sb_qysdsmbksqylx;
+drop table if exists lq_dm_sb_qysdsmbksqylx;
 
 create table lq_dm_sb_qysdsmbksqylx (
 qysdsmbksqylx_id varchar(64), 
@@ -3014,7 +3014,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:93.弥补亏损企业类型';
 
-drop table if exists EXISTS lq_cs_gy_zqtz;
+drop table if exists lq_cs_gy_zqtz;
 
 create table lq_cs_gy_zqtz (
 zqtz_id varchar(64), 
@@ -3048,7 +3048,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:94.征期调整表';
 
-drop table if exists EXISTS lq_cs_gy_jjr;
+drop table if exists lq_cs_gy_jjr;
 
 create table lq_cs_gy_jjr (
 jjr_id varchar(64), 
@@ -3079,7 +3079,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:95.节假日表';
 
-drop table if exists EXISTS lq_cs_gy_sbqxwh;
+drop table if exists lq_cs_gy_sbqxwh;
 
 create table lq_cs_gy_sbqxwh (
 sbqxwh_id varchar(64), 
@@ -3117,7 +3117,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:96.申报期限维护表';
 
-drop table if exists EXISTS lq_cs_gy_zsxmpmqxgzb_qg;
+drop table if exists lq_cs_gy_zsxmpmqxgzb_qg;
 
 create table lq_cs_gy_zsxmpmqxgzb_qg (
 qg_id varchar(64), 
@@ -3153,7 +3153,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:97.全国征收项目品目期限规则表';
 
-drop table if exists EXISTS lq_cs_gy_zsxmpmqxgzb_zdy;
+drop table if exists lq_cs_gy_zsxmpmqxgzb_zdy;
 
 create table lq_cs_gy_zsxmpmqxgzb_zdy (
 zdy_id varchar(64), 
@@ -3189,7 +3189,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:98.自定义征收项目品目期限规则表';
 
-drop table if exists EXISTS lq_dm_gy_ywlc;
+drop table if exists lq_dm_gy_ywlc;
 
 create table lq_dm_gy_ywlc (
 ywlc_id varchar(64), 
@@ -3224,7 +3224,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:99.业务流程代码';
 
-drop table if exists EXISTS lq_cs_gy_xtcs;
+drop table if exists lq_cs_gy_xtcs;
 
 create table lq_cs_gy_xtcs (
 xtcs_id varchar(64), 
@@ -3256,7 +3256,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:100.系统参数表';
 
-drop table if exists EXISTS lq_dm_gy_xtcsbm;
+drop table if exists lq_dm_gy_xtcsbm;
 
 create table lq_dm_gy_xtcsbm (
 xtcsbm_id varchar(64), 
@@ -3298,7 +3298,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:101.系统参数编码表';
 
-drop table if exists EXISTS lq_dm_sb_msdclx;
+drop table if exists lq_dm_sb_msdclx;
 
 create table lq_dm_sb_msdclx (
 msdclx_id varchar(64), 
@@ -3329,7 +3329,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:102.免税电池类型代码表';
 
-drop table if exists EXISTS lq_cs_sb_xfsslpzb;
+drop table if exists lq_cs_sb_xfsslpzb;
 
 create table lq_cs_sb_xfsslpzb (
 xfsslpzb_id varchar(64), 
@@ -3365,7 +3365,7 @@ reserved10       VARCHAR(10) COMMENT '预留字段10',
 PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '直连申报:103.应税消费品名称、税率和计量单位对照表';
 
-drop table if exists EXISTS lq_dm_fp_dkfpjmslx;
+drop table if exists lq_dm_fp_dkfpjmslx;
 
 create table lq_dm_fp_dkfpjmslx (
 dkfpjmslx_id varchar(64), 
