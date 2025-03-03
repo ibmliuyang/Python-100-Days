@@ -1,4 +1,6 @@
 from docx import Document
+from docx.shared import Pt
+from docx.oxml.ns import qn
 from openai import OpenAI
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -44,10 +46,13 @@ def translate_text(text):
     return response.choices[0].message.content
 
 
-# 并发翻译函数（保持顺序）
+# 并发翻译函数（带进度打印）
 def translate_concurrently(text, chunk_size=500, max_workers=10):
+    # 将文本分块
     chunks = [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
     translated_chunks = [None] * len(chunks)  # 用于存储翻译结果，保持顺序
+    total_tasks = len(chunks)  # 总任务数
+    completed_tasks = 0  # 已完成任务数
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         # 提交任务，并记录每个任务的索引
@@ -57,6 +62,9 @@ def translate_concurrently(text, chunk_size=500, max_workers=10):
         for future in as_completed(future_to_index):
             index = future_to_index[future]  # 获取任务的原始索引
             translated_chunks[index] = future.result()  # 将结果放入正确的位置
+            completed_tasks += 1  # 更新已完成任务数
+            # 打印进度
+            print(f"翻译进度: {completed_tasks}/{total_tasks} ({(completed_tasks / total_tasks) * 100:.2f}%)")
 
     # 按原始顺序拼接翻译结果
     translated_text = "".join(translated_chunks)
@@ -72,11 +80,16 @@ def read_word_file(file_path):
     return text
 
 
-# 将翻译结果写入 Word 文档
+# 将翻译结果写入 Word 文档（设置字体为仿宋）
 def write_to_word_file(text, output_path):
     doc = Document()
     for paragraph in text.split("\n"):
-        doc.add_paragraph(paragraph)
+        p = doc.add_paragraph(paragraph)
+        # 设置字体为仿宋
+        for run in p.runs:
+            run.font.name = "仿宋"
+            run._element.rPr.rFonts.set(qn("w:eastAsia"), "仿宋")  # 设置中文字体
+            run.font.size = Pt(12)  # 设置字号为 12
     doc.save(output_path)
 
 
@@ -101,5 +114,5 @@ def translate_word_file(input_path, output_path):
 # 示例调用
 if __name__ == "__main__":
     input_file = "/Users/ly/Downloads/wjy/副本en.docx"  # 输入文件路径
-    output_file = "/Users/ly/Downloads/wjy/cn1.docx"  # 输出文件路径
+    output_file = "/Users/ly/Downloads/wjy/cn4.docx"  # 输出文件路径
     translate_word_file(input_file, output_file)
