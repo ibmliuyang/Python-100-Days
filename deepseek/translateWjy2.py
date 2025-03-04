@@ -47,7 +47,7 @@ def translate_text(text):
 
 
 # 动态分块函数（按段落分块，保留上下文）
-def split_text_into_chunks(text, max_chunk_size=10000, overlap_size=200, is_english=False):
+def split_text_into_chunks(text, max_chunk_size=20000, overlap_size=200, is_english=False):
     paragraphs = text.split("\n")
     chunks = []
     current_chunk = ""
@@ -80,7 +80,7 @@ def split_text_into_chunks(text, max_chunk_size=10000, overlap_size=200, is_engl
 
 
 # 并发翻译函数（带进度打印）
-def translate_concurrently(text, max_chunk_size=10000, max_workers=10, is_english=False):
+def translate_concurrently(text, max_chunk_size=20000, max_workers=10, is_english=False):
     # 动态分块
     chunks = split_text_into_chunks(text, max_chunk_size, is_english=is_english)
     translated_chunks = [None] * len(chunks)  # 用于存储翻译结果，保持顺序
@@ -153,7 +153,7 @@ def translate_word_file(input_path, output_path, is_english=False):
 # 示例调用
 if __name__ == "__main__":
     input_file = "/Users/ly/Downloads/wjy/en999.docx"  # 输入文件路径
-    output_file = "/Users/ly/Downloads/wjy/cn991.docx"  # 输出文件路径
+    output_file = "/Users/ly/Downloads/wjy/cn992.docx"  # 输出文件路径
     translate_word_file(input_file, output_file)
     is_english = True  # 如果输入文件是英文，设置为 True；如果是中文，设置为 False
     translate_word_file(input_file, output_file, is_english)
