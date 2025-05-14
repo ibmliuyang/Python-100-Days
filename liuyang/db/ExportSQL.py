@@ -1,6 +1,6 @@
-import mysql.connector
+import pymysql
+from pymysql import err
 import re
-from mysql.connector import Error
 
 
 class SQLExporter:
@@ -15,55 +15,51 @@ class SQLExporter:
     def connect(self):
         """建立数据库连接"""
         try:
-            self.connection = mysql.connector.connect(
+            self.connection = pymysql.connect(
                 host=self.host,
                 user=self.user,
                 password=self.password,
                 database=self.database,
-                port=self.port
+                port=self.port,
+                charset='utf8mb4',
+                autocommit=True
             )
-            if self.connection.is_connected():
-                print(f"已连接到数据库: {self.database} (端口: {self.port})")
-                return True
-        except Error as e:
+            print(f"已连接到数据库: {self.database} (端口: {self.port})")
+            return True
+        except err.Error as e:
             print(f"数据库连接错误: {e}")
             return False
 
     def disconnect(self):
         """断开数据库连接"""
-        if self.connection and self.connection.is_connected():
+        if self.connection:
             self.connection.close()
             print("已断开数据库连接")
 
     def execute_query(self, query):
-        """
-        执行查询并返回结果
-        """
-        if not self.connection or not self.connection.is_connected():
+        """执行查询并返回结果"""
+        if not self.connection or self.connection.open is False:
             if not self.connect():
                 return [], []
 
         try:
-            cursor = self.connection.cursor()
-            cursor.execute(query)
+            with self.connection.cursor() as cursor:
+                cursor.execute(query)
 
-            # 处理非SELECT语句的情况
-            if not cursor.with_rows:
-                cursor.close()
-                return [], []
+                # 处理非SELECT语句的情况
+                if cursor.description is None:
+                    return [], []
 
-            records = cursor.fetchall()
-            columns = [column[0] for column in cursor.description]
-            cursor.close()
-            return records, columns
-        except Error as e:
+                records = cursor.fetchall()
+                columns = [desc[0] for desc in cursor.description]
+                return records, columns
+
+        except err.Error as e:
             print(f"查询执行错误: {e}")
             return [], []
 
     def generate_insert_sql(self, query, table_name=None):
-        """
-        生成 INSERT SQL 语句
-        """
+        """生成 INSERT SQL 语句"""
         records, columns = self.execute_query(query)
         if not records or not columns:
             print(f"警告: 查询 '{query[:50]}...' 没有返回数据")
@@ -84,12 +80,15 @@ class SQLExporter:
                 elif isinstance(value, (int, float)):
                     values.append(str(value))
                 elif isinstance(value, bool):
-                    values.append(str(int(value)))  # 或使用'TRUE'/'FALSE'
+                    values.append("1" if value else "0")
                 elif isinstance(value, str):
-                    escaped = value.replace("'", "''")
-                    values.append(f"'{escaped}'")
+                    # 使用连接对象的escape方法替代pymysql.escape_string
+                    escaped = self.connection.escape(value)
+                    values.append(escaped)
                 else:
-                    values.append(f"'{str(value)}'")
+                    # 使用连接对象的escape方法处理其他类型
+                    escaped = self.connection.escape(str(value))
+                    values.append(escaped)
 
             columns_str = ", ".join(columns)
             values_str = ", ".join(values)
@@ -100,9 +99,7 @@ class SQLExporter:
         return "\n".join(insert_sql)
 
     def _extract_table_name(self, query):
-        """
-        改进的表名提取方法（使用正则表达式）
-        """
+        """改进的表名提取方法（使用正则表达式）"""
         query = re.sub(r"/\*.*?\*/", "", query, flags=re.DOTALL)  # 去除注释
         query = query.strip().lower()
 
