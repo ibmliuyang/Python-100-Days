@@ -1,6 +1,6 @@
 import pymysql
-from pymysql import err
 import re
+from pymysql import Error
 
 
 class SQLExporter:
@@ -22,23 +22,25 @@ class SQLExporter:
                 database=self.database,
                 port=self.port,
                 charset='utf8mb4',
-                autocommit=True
+                cursorclass=pymysql.cursors.DictCursor  # 使用DictCursor方便处理结果
             )
             print(f"已连接到数据库: {self.database} (端口: {self.port})")
             return True
-        except err.Error as e:
+        except Error as e:
             print(f"数据库连接错误: {e}")
             return False
 
     def disconnect(self):
         """断开数据库连接"""
-        if self.connection:
+        if self.connection and self.connection.open:
             self.connection.close()
             print("已断开数据库连接")
 
     def execute_query(self, query):
-        """执行查询并返回结果"""
-        if not self.connection or self.connection.open is False:
+        """
+        执行查询并返回结果
+        """
+        if not self.connection or not self.connection.open:
             if not self.connect():
                 return [], []
 
@@ -51,15 +53,59 @@ class SQLExporter:
                     return [], []
 
                 records = cursor.fetchall()
-                columns = [desc[0] for desc in cursor.description]
-                return records, columns
+                # 转换为元组列表和列名列表
+                if records and isinstance(records[0], dict):
+                    columns = list(records[0].keys())
+                    records = [tuple(record.values()) for record in records]
+                else:
+                    columns = [column[0] for column in cursor.description]
 
-        except err.Error as e:
+                return records, columns
+        except Error as e:
             print(f"查询执行错误: {e}")
             return [], []
 
-    def generate_insert_sql(self, query, table_name=None):
-        """生成 INSERT SQL 语句"""
+    def extract_where_clause(self, query):
+        """从SELECT查询中提取WHERE子句"""
+        # 去除注释并转为小写
+        query = re.sub(r"/\*.*?\*/", "", query, flags=re.DOTALL)
+        query = re.sub(r"--.*$", "", query, flags=re.M)
+        query = query.strip().lower()
+
+        # 匹配SELECT语句
+        select_match = re.search(r"^\s*select\s+.*?\s+from\s+[\w\.]+\s*(where\s+.*)$", query, re.DOTALL)
+        if select_match:
+            where_clause = select_match.group(1)
+            # 移除ORDER BY, LIMIT等子句
+            where_clause = re.sub(r"\s+order\s+by\s+.*$", "", where_clause)
+            where_clause = re.sub(r"\s+limit\s+.*$", "", where_clause)
+            where_clause = re.sub(r"\s+offset\s+.*$", "", where_clause)
+            return where_clause.strip()
+
+        return None
+
+    def generate_delete_sql(self, query, table_name=None):
+        """根据SELECT查询的WHERE条件生成DELETE语句"""
+        if not table_name:
+            table_name = self._extract_table_name(query)
+            if not table_name:
+                print(f"错误: 无法从查询中推断表名: {query[:50]}...")
+                return ""
+
+        # 提取WHERE子句
+        where_clause = self.extract_where_clause(query)
+        if not where_clause:
+            print(f"警告: 无法从查询中提取WHERE子句: {query[:50]}...")
+            print("将生成无条件DELETE语句，这可能删除表中所有数据！如需继续，请手动执行。")
+            return ""
+
+        # 生成DELETE语句
+        return f"DELETE FROM {table_name} WHERE {where_clause};"
+
+    def generate_insert_sql(self, query, table_name=None, batch_size=1000):
+        """
+        生成多行INSERT SQL语句（批量插入）
+        """
         records, columns = self.execute_query(query)
         if not records or not columns:
             print(f"警告: 查询 '{query[:50]}...' 没有返回数据")
@@ -71,35 +117,43 @@ class SQLExporter:
                 print(f"错误: 无法从查询中推断表名: {query[:50]}...")
                 return ""
 
+        # 生成列名列表
+        columns_str = ", ".join(columns)
+
+        # 分批处理，避免SQL语句过长
         insert_sql = []
-        for record in records:
-            values = []
-            for value in record:
-                if value is None:
-                    values.append("NULL")
-                elif isinstance(value, (int, float)):
-                    values.append(str(value))
-                elif isinstance(value, bool):
-                    values.append("1" if value else "0")
-                elif isinstance(value, str):
-                    # 使用连接对象的escape方法替代pymysql.escape_string
-                    escaped = self.connection.escape(value)
-                    values.append(escaped)
-                else:
-                    # 使用连接对象的escape方法处理其他类型
-                    escaped = self.connection.escape(str(value))
-                    values.append(escaped)
+        for i in range(0, len(records), batch_size):
+            batch_records = records[i:i + batch_size]
+            values_groups = []
 
-            columns_str = ", ".join(columns)
-            values_str = ", ".join(values)
-            insert_sql.append(
-                f"INSERT INTO {table_name} ({columns_str}) VALUES ({values_str});"
-            )
+            for record in batch_records:
+                values = []
+                for value in record:
+                    if value is None:
+                        values.append("NULL")
+                    elif isinstance(value, (int, float)):
+                        values.append(str(value))
+                    elif isinstance(value, bool):
+                        values.append(str(int(value)))
+                    elif isinstance(value, str):
+                        escaped = value.replace("'", "''")
+                        values.append(f"'{escaped}'")
+                    else:
+                        values.append(f"'{str(value)}'")
 
-        return "\n".join(insert_sql)
+                # 将当前行的值用括号包裹，形成一个值组
+                values_groups.append(f"({', '.join(values)})")
+
+            # 合并多行值组到一个INSERT语句
+            values_str = ",\n".join(values_groups)
+            insert_sql.append(f"INSERT INTO {table_name} ({columns_str}) VALUES\n{values_str};")
+
+        return "\n\n".join(insert_sql)
 
     def _extract_table_name(self, query):
-        """改进的表名提取方法（使用正则表达式）"""
+        """
+        改进的表名提取方法（使用正则表达式）
+        """
         query = re.sub(r"/\*.*?\*/", "", query, flags=re.DOTALL)  # 去除注释
         query = query.strip().lower()
 
@@ -116,40 +170,66 @@ class SQLExporter:
 
         return None
 
-    def export_to_file(self, query, output_file, table_name=None):
-        insert_sql = self.generate_insert_sql(query, table_name)
+    def export_to_file(self, query, output_file, table_name=None, batch_size=1000, include_delete=True):
+        """导出SQL到文件（可选包含DELETE语句）"""
+        sql_parts = []
+
+        if include_delete:
+            delete_sql = self.generate_delete_sql(query, table_name)
+            if delete_sql:
+                sql_parts.append(delete_sql)
+
+        insert_sql = self.generate_insert_sql(query, table_name, batch_size)
         if insert_sql:
+            sql_parts.append(insert_sql)
+
+        combined_sql = "\n\n".join(sql_parts)
+
+        if combined_sql:
             try:
                 with open(output_file, "w", encoding="utf-8") as f:
-                    f.write(insert_sql)
-                print(f"INSERT SQL 已导出到文件: {output_file}")
+                    f.write(combined_sql)
+                print(f"SQL 已导出到文件: {output_file}")
             except Exception as e:
                 print(f"导出文件时出错: {e}")
 
-    def process_multiple_queries(self, queries, output_file=None, include_comments=True):
-        all_insert_sql = []
+    def process_multiple_queries(self, queries, output_file=None, include_comments=True, batch_size=1000,
+                                 include_delete=True):
+        """处理多个查询（可选包含DELETE语句）"""
+        all_sql = []
+
         for query in queries:
             query = query.strip()
             if not query:
                 continue
 
-            insert_sql = self.generate_insert_sql(query)
-            if not insert_sql:
-                continue
+            sql_parts = []
 
-            if include_comments:
-                header = f"-- 原始查询: {query}\n" if len(query) < 75 else f"-- 原始查询: {query[:75]}...\n"
-                all_insert_sql.append(header + insert_sql)
-            else:
-                all_insert_sql.append(insert_sql)
+            if include_delete:
+                delete_sql = self.generate_delete_sql(query)
+                if delete_sql:
+                    if include_comments:
+                        sql_parts.append(f"-- DELETE 语句基于查询条件: {query}\n{delete_sql}")
+                    else:
+                        sql_parts.append(delete_sql)
 
-        combined_sql = "\n\n".join(all_insert_sql)
+            insert_sql = self.generate_insert_sql(query, batch_size=batch_size)
+            if insert_sql:
+                if include_comments:
+                    sql_parts.append(f"-- 原始查询: {query}\n{insert_sql}")
+                else:
+                    sql_parts.append(insert_sql)
+
+            if sql_parts:
+                all_sql.append("\n\n".join(sql_parts))
+
+        combined_sql = "\n\n\n".join(all_sql)
 
         if output_file and combined_sql:
             try:
                 with open(output_file, "w", encoding="utf-8") as f:
                     f.write(combined_sql)
-                print(f"所有 INSERT SQL 已导出到文件: {output_file}")
+                print(f"所有 SQL 已导出到文件: {output_file}")
             except Exception as e:
                 print(f"导出文件时出错: {e}")
 
@@ -167,10 +247,15 @@ if __name__ == "__main__":
     )
 
     queries = [
-        "select *  from t_tool_report where   report_id in ('1400159778100019200', '1397996648607580160');",
-        "select *  from t_tool_report_tpl  where   report_id in ('1400159778100019200', '1397996648607580160')",
-        "select *  from t_tool_report_config where   report_id in ('1400159778100019200', '1397996648607580160');",
+        "select * from t_tool_report where report_id in ('1400159778100019200', '1397996648607580160');",
+        "select * from t_tool_report_tpl where report_id in ('1400159778100019200', '1397996648607580160')",
+        "select * from t_tool_report_config where report_id in ('1400159778100019200', '1397996648607580160');",
     ]
 
-    exporter.process_multiple_queries(queries, output_file="batch_inserts.sql")
+    exporter.process_multiple_queries(
+        queries,
+        output_file="batch_inserts_pymysql.sql",
+        batch_size=1000,
+        include_delete=True  # 启用DELETE语句生成
+    )
     exporter.disconnect()
