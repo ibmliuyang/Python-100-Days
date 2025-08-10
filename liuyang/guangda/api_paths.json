@@ -1,12 +1,12 @@
 {
   "iinv-period": {
-    "apiPath": null,
+    "apiPath": "/iinv/iinv-period",
     "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "${apiPath}/sync-period-multiple",
-      "${apiPath}/change-period",
-      "${apiPath}/sync-period-single",
+      "/iinv/iinv-period/save-update",
+      "/iinv/iinv-period/get/${params.id}",
+      "/iinv/iinv-period/sync-period-multiple",
+      "/iinv/iinv-period/change-period",
+      "/iinv/iinv-period/sync-period-single",
       "/sys/bizbase-taxpayer/select/1"
     ]
   },
@@ -15,222 +15,31 @@
     "urls": []
   },
   "wht-auth": {
-    "apiPath": null,
+    "apiPath": "/iinv/iinv-wht-auth",
     "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}"
+      "/iinv/iinv-wht-auth/save-update",
+      "/iinv/iinv-wht-auth/get/${params.id}"
     ]
   },
   "iinv-customs-collect": {
-    "apiPath": null,
+    "apiPath": "/iinv/iinv-customs-collect",
     "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "${apiPath}/sync-to-auth",
-      "${apiPath}/cancel-sync-to-auth"
-    ]
-  },
-  "red-info-manage": {
-    "apiPath": "/iinv/iinv-red-info",
-    "urls": [
-      "/iinv/iinv-red-info/get/${params.id}",
-      "/iinv/iinv-red-info/setInputReason",
-      "/iinv/iinv-red-info/save-update",
-      "/iinv/iinv-red-info/delete-all-by-id",
-      "/iinv/iinv-red-info/getRedInvoice/${params.infoId}"
-    ]
-  },
-  "iinv-customs-auth-detail": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}"
-    ]
-  },
-  "obtained-entry": {
-    "apiPath": "/iinv/iinv-collect",
-    "urls": [
-      "/iinv/iinv-collect/manual-match"
-    ]
-  },
-  "wht-collect": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "${apiPath}/join-auth/${type}"
-    ]
-  },
-  "invoice-statisIn": {
-    "apiPath": "/iinv/iinv-stat",
-    "urls": [
-      "/iinv/iinv-stat/delete-by-id/${id}",
-      "/iinv/iinv-auth/un-fail-stat-taxpayer",
-      "/sys/bizbase-taxpayer/select/1",
-      "/iinv/iinv-auth/apply/stat/count-invoice"
-    ]
-  },
-  "customs-task-pool": {
-    "apiPath": "/iinv/iinv-customs-auth",
-    "urls": []
-  },
-  "customs-invoice": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/batch-download",
-      "${apiPath}/push-invoice",
-      "${apiPath}/upload"
-    ]
-  },
-  "iinv-compliance-rule": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "/tools/tool-etl-rule/operators",
-      "/tools/tool-customize-biz-rule/save-update",
-      "/tools/tool-customize-biz-rule/get-by-biz"
-    ]
-  },
-  "batch-identifica": {
-    "apiPath": "/iinv/iinv-image-batch",
-    "urls": [
-      "/iinv/iinv-image-batch/batch-download-files",
-      "/iinv/iinv-image-batch/batch-ocr-inspect",
-      "/iinv/iinv-image-batch/stop-ocr-inspect",
-      "/iinv/iinv-image-batch/save-update",
-      "/iinv/iinv-image-batch/get/${params.id}"
-    ]
-  },
-  "invoice-posting/vat-recorded": {
-    "apiPath": "/iinv/iinv-enter-account",
-    "urls": [
-      "${apiImagePath}/downLoadImgs",
-      "/iinv/iinv-enter-account/pushImage"
-    ]
-  },
-  "iinv-stat": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "/iinv/iinv-stat/un-fail-stat-taxpayer",
-      "${apiPath}/stat/apply/${type}"
-    ]
-  },
-  "personal-invoice": {
-    "apiPath": "/iinv/iinv-invoice",
-    "urls": [
-      "${apiImagePath}/downLoadImgs",
-      "/iinv/iinv-invoice/push-invoice"
-    ]
-  },
-  "invoice-task-pool": {
-    "apiPath": "/iinv/iinv-auth",
-    "urls": [
-      "/iinv/iinv-auth/sign/apply/${type}",
-      "/iinv/iinv-auth/stat/apply/${type}",
-      "/iinv/iinv-stat/stat-detail",
-      "/iinv/iinv-auth/report",
-      "/iinv/iinv-auth/period",
-      "/iinv/iinv-invoice-history/page-list",
-      "/iinv/iinv-auth/sync-collect",
-      "/iinv/iinv-auth/apply/statistical"
-    ]
-  },
-  "iinv-dzpz": {
-    "apiPath": "/iinv/iinv-dzpz",
-    "urls": [
-      "/iinv/iinv-dzpz/pushImage",
-      "/iinv/iinv-dzpz/save-update",
-      "/iinv/iinv-dzpz/get/${params.id}"
-    ]
-  },
-  "authentication/wht-authentication": {
-    "apiPath": "/iinv/iinv-wht-auth",
-    "urls": [
-      "${apiImagePath}/downLoadImgs",
-      "/iinv/iinv-wht-auth/pushImage"
-    ]
-  },
-  "red-invoice": {
-    "apiPath": "/iinv/iinv-red-info",
-    "urls": [
-      "/iinv/iinv-red-info/getByInfoNo/${params.infoNo}"
-    ]
-  },
-  "invoice-statistics-query": {
-    "apiPath": "/iinv/iinv-collect",
-    "urls": [
-      "/iinv/iinv-collect/manual-match"
-    ]
-  },
-  "iinv-customs-auth": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}"
-    ]
-  },
-  "invoice-config/field-config": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/page-list",
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "${apiPath}/refresh",
-      "${apiPath}/delete-by-id/${params}",
-      "${apiPath}/copy-config"
-    ]
-  },
-  "invoice-config/sensitive-word-config": {
-    "apiPath": "/iinv/iinv-sensitive",
-    "urls": [
-      "/iinv/iinv-sensitive/save-update",
-      "/iinv/iinv-sensitive/get/${params.id}"
-    ]
-  },
-  "invoice-config/invoice-field-config": {
-    "apiPath": "/iinv/iinv-invoice-config",
-    "urls": [
-      "/iinv/iinv-invoice-config/page-list",
-      "/iinv/iinv-invoice-config/save-update",
-      "/iinv/iinv-invoice-config/get/${params.id}",
-      "/iinv/iinv-invoice-config/refresh",
-      "/iinv/iinv-invoice-config/delete-by-id/${params}"
-    ]
-  },
-  "invoice-config/collect-email": {
-    "apiPath": null,
-    "urls": [
-      "${apiPath}/save-update",
-      "${apiPath}/get/${params.id}",
-      "${apiPath}/update-is-sync"
-    ]
-  },
-  "invoice-config/enterprise-black": {
-    "apiPath": "/iinv/iinv-blacklist",
-    "urls": [
-      "/iinv/iinv-blacklist/save-update",
-      "/iinv/iinv-blacklist/get/${params.id}"
-    ]
-  },
-  "invoice-config/main-iinv-rule": {
-    "apiPath": "/iinv/iinv-config",
-    "urls": [
-      "/iinv/iinv-config/page-list",
-      "/iinv/iinv-config/save-update",
-      "/iinv/iinv-config/get/${params.id}",
-      "/iinv/iinv-config/save-update",
-      "/iinv/iinv-config/copy-config",
-      "/sys/bizbase-taxpayer/select/1"
-    ]
-  },
-  "invoice-config/input-channel": {
-    "apiPath": "/iinv/iinv-channel-config",
-    "urls": [
-      "/iinv/iinv-channel-config/save-update",
-      "/iinv/iinv-channel-config/get/${params.id}"
+      "/iinv/iinv-customs-collect/save-update",
+      "/iinv/iinv-customs-collect/get/${params.id}",
+      "/iinv/iinv-customs-collect/sync-to-auth",
+      "/iinv/iinv-customs-collect/cancel-sync-to-auth"
     ]
   }
 }
+
+
+可以把每个apiPath 和 url拼接到一起吗
+比如第一组根据urls里有六个拼接上apiPath
+
+得到
+/iinv/iinv-period/iinv/iinv-period/save-update
+/iinv/iinv-period/iinv/iinv-period/get/${params.id}
+/iinv/iinv-period/iinv/iinv-period/sync-period-multiple
+/iinv/iinv-period/iinv/iinv-period/change-period
+/iinv/iinv-period/iinv/iinv-period/sync-period-single
+/iinv/iinv-period/sys/bizbase-taxpayer/select/1

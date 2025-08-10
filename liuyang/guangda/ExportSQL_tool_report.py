@@ -66,20 +66,22 @@ class SQLExporter:
             return [], []
 
     def extract_where_clause(self, query):
-        """从SELECT查询中提取WHERE子句"""
-        # 去除注释并转为小写
+        """从SELECT查询中提取WHERE子句（不改变原始大小写）"""
+        # 去除注释（保持大小写）
         query = re.sub(r"/\*.*?\*/", "", query, flags=re.DOTALL)
         query = re.sub(r"--.*$", "", query, flags=re.M)
-        query = query.strip().lower()
+        query = query.strip()
 
-        # 匹配SELECT语句
-        select_match = re.search(r"^\s*select\s+.*?\s+from\s+[\w\.]+\s*(where\s+.*)$", query, re.DOTALL)
-        if select_match:
-            where_clause = select_match.group(1)
-            # 移除ORDER BY, LIMIT等子句
-            where_clause = re.sub(r"\s+order\s+by\s+.*$", "", where_clause)
-            where_clause = re.sub(r"\s+limit\s+.*$", "", where_clause)
-            where_clause = re.sub(r"\s+offset\s+.*$", "", where_clause)
+        # 使用不区分大小写的正则表达式查找WHERE子句位置
+        where_match = re.search(r"\s+WHERE\s+(.+)$", query, re.IGNORECASE | re.DOTALL)
+        if where_match:
+            where_clause = where_match.group(1)
+
+            # 移除ORDER BY, LIMIT等子句（不区分大小写）
+            where_clause = re.sub(r"\s+ORDER\s+BY\s+.*$", "", where_clause, flags=re.IGNORECASE)
+            where_clause = re.sub(r"\s+LIMIT\s+.*$", "", where_clause, flags=re.IGNORECASE)
+            where_clause = re.sub(r"\s+OFFSET\s+.*$", "", where_clause, flags=re.IGNORECASE)
+
             return where_clause.strip()
 
         return None
@@ -92,18 +94,22 @@ class SQLExporter:
                 print(f"错误: 无法从查询中推断表名: {query[:50]}...")
                 return ""
 
-        # 提取WHERE子句
-        where_clause = self.extract_where_clause(query)
-        if not where_clause:
-            print(f"警告: 无法从查询中提取WHERE子句: {query[:50]}...")
+        # 提取WHERE子句（不包含WHERE关键字）
+        where_conditions = self.extract_where_clause(query)
+        if not where_conditions:
+            print(f"警告: 无法从查询中提取WHERE条件: {query[:50]}...")
             print("将生成无条件DELETE语句，这可能删除表中所有数据！如需继续，请手动执行。")
             return ""
 
-        # 生成DELETE语句
-        return f"DELETE FROM {table_name} WHERE {where_clause};"
+        # 生成DELETE语句（正确拼接WHERE关键字）
+        return f"DELETE FROM {table_name} WHERE {where_conditions};"
+
+
 
     def generate_insert_sql(self, query, table_name=None, batch_size=1000):
-        """生成多行INSERT SQL语句（批量插入）"""
+        """
+        生成多行INSERT SQL语句（批量插入）
+        """
         records, columns = self.execute_query(query)
         if not records or not columns:
             print(f"警告: 查询 '{query[:50]}...' 没有返回数据")
@@ -115,9 +121,11 @@ class SQLExporter:
                 print(f"错误: 无法从查询中推断表名: {query[:50]}...")
                 return ""
 
+        # 生成列名列表
         columns_str = ", ".join(columns)
-        insert_sql = []
 
+        # 分批处理，避免SQL语句过长
+        insert_sql = []
         for i in range(0, len(records), batch_size):
             batch_records = records[i:i + batch_size]
             values_groups = []
@@ -132,21 +140,23 @@ class SQLExporter:
                     elif isinstance(value, bool):
                         values.append(str(int(value)))
                     elif isinstance(value, str):
-                        # 1. 处理换行符和制表符
-                        value = value.replace(r'\"', r'\\"')  # 替换 \" 为 \\"
-                        # 2. 转义单引号（双引号无需转义，MySQL单引号字符串中允许双引号）
                         escaped = value.replace("'", "''")
                         values.append(f"'{escaped}'")
                     else:
-                        # 其他类型转为字符串（如datetime），不做转义
                         values.append(f"'{str(value)}'")
 
+                # 将当前行的值用括号包裹，形成一个值组
                 values_groups.append(f"({', '.join(values)})")
 
+            # 合并多行值组到一个INSERT语句
             values_str = ",\n".join(values_groups)
             insert_sql.append(f"INSERT INTO {table_name} ({columns_str}) VALUES\n{values_str};")
 
         return "\n\n".join(insert_sql)
+
+
+
+
 
     def _extract_table_name(self, query):
         """
@@ -232,26 +242,20 @@ class SQLExporter:
                 print(f"导出文件时出错: {e}")
 
         return combined_sql
-
-
 # 使用示例
 if __name__ == "__main__":
     exporter = SQLExporter(
-        host="183.60.103.150",
-        user="root",
-        password="YuanianV5@",
-        database="pingan_230805",
-        port=3306
+        host="tms-edb-dd.eca.dev.cebbank",
+        user="tms_user",
+        password="Tms@1234",
+        database="tms",
+        port=16310
     )
-
+#  去掉 "select *  from t_tool_index where  report_id  in  ('0c8020e2b8054a75a4809f1000000101','0c8020e2b8054a75a4809f1000000102')"
+# index 表从everDB复制，从这里导出会丢失/, 比如 \",###.00\" 替换为  \\",###.00\\"
     queries = [
-        "select * from t_tool_index where index_id ='716aa4d7e7bd45a284c9dfcdb20d0eda';"
+        "select *  from t_tool_report where  report_code in ('10101320','10101319')"
     ]
 
-    exporter.process_multiple_queries(
-        queries,
-        output_file="tool_report_index.sql",
-        batch_size=1000,
-        include_delete=True  # 启用DELETE语句生成
-    )
+    exporter.process_multiple_queries(queries, output_file="tool_report_250612.sql")
     exporter.disconnect()

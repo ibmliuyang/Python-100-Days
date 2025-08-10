@@ -1,0 +1,148 @@
+{
+  "/iinv/period": [
+    "/iinv/iinv-period/iinv/iinv-period/save-update",
+    "/iinv/iinv-period/iinv/iinv-period/get/${params.id}",
+    "/iinv/iinv-period/iinv/iinv-period/sync-period-multiple",
+    "/iinv/iinv-period/iinv/iinv-period/change-period",
+    "/iinv/iinv-period/iinv/iinv-period/sync-period-single",
+    "/iinv/iinv-period/sys/bizbase-taxpayer/select/1"
+  ],
+  "/iinv/small-agro-food": [],
+  "/iinv/wht-auth": [
+    "/iinv/iinv-wht-auth/iinv/iinv-wht-auth/save-update",
+    "/iinv/iinv-wht-auth/iinv/iinv-wht-auth/get/${params.id}"
+  ],
+  "/iinv/iinv-customs-collect": [
+    "/iinv/iinv-customs-collect/iinv/iinv-customs-collect/save-update",
+    "/iinv/iinv-customs-collect/iinv/iinv-customs-collect/get/${params.id}",
+    "/iinv/iinv-customs-collect/iinv/iinv-customs-collect/sync-to-auth",
+    "/iinv/iinv-customs-collect/iinv/iinv-customs-collect/cancel-sync-to-auth"
+  ],
+  "/iinv/entry-invoice/red-info-manage": [
+    "/iinv/iinv-red-info/iinv/iinv-red-info/get/${params.id}",
+    "/iinv/iinv-red-info/iinv/iinv-red-info/setInputReason",
+    "/iinv/iinv-red-info/iinv/iinv-red-info/save-update",
+    "/iinv/iinv-red-info/iinv/iinv-red-info/delete-all-by-id",
+    "/iinv/iinv-red-info/iinv/iinv-red-info/getRedInvoice/${params.infoId}"
+  ],
+  "/iinv/iinv-customs-auth-detail": [
+    "/iinv/iinv-customs-auth-detail/iinv/iinv-customs-auth-detail/save-update",
+    "/iinv/iinv-customs-auth-detail/iinv/iinv-customs-auth-detail/get/${params.id}"
+  ],
+  "/iinv/entry-invoice/obtained-entry": [
+    "/iinv/iinv-collect/iinv/iinv-collect/manual-match"
+  ],
+  "/iinv/wht-collect": [
+    "/iinv/iinv-wht-collect/iinv/iinv-wht-collect/save-update",
+    "/iinv/iinv-wht-collect/iinv/iinv-wht-collect/get/${params.id}",
+    "/iinv/iinv-wht-collect/iinv/iinv-wht-collect/join-auth/${type}"
+  ],
+  "/iinv/entry-invoice/invoice-statist": [
+    "/iinv/iinv-stat/iinv/iinv-stat/delete-by-id/${id}",
+    "/iinv/iinv-stat/iinv/iinv-auth/un-fail-stat-taxpayer",
+    "/iinv/iinv-stat/sys/bizbase-taxpayer/select/1",
+    "/iinv/iinv-stat/iinv/iinv-auth/apply/stat/count-invoice"
+  ],
+  "/iinv/entry-invoice": [
+    "/iinv/iinv-auth/iinv/iinv-auth/sign/apply/${type}",
+    "/iinv/iinv-auth/iinv/iinv-auth/stat/apply/${type}",
+    "/iinv/iinv-auth/iinv/iinv-stat/stat-detail",
+    "/iinv/iinv-auth/iinv/iinv-auth/report",
+    "/iinv/iinv-auth/iinv/iinv-auth/period",
+    "/iinv/iinv-auth/iinv/iinv-invoice-history/page-list",
+    "/iinv/iinv-auth/iinv/iinv-auth/sync-collect",
+    "/iinv/iinv-auth/iinv/iinv-auth/apply/statistical"
+  ],
+  "/iinv/customs-invoice": [
+    "/iinv/iinv-customs-auth/iinv/iinv-customs-auth/batch-download",
+    "/iinv/iinv-customs-auth/iinv/iinv-customs-auth/push-invoice",
+    "/iinv/iinv-customs-auth/iinv/iinv-customs-auth/upload"
+  ],
+  "/iinv/iinv-compliance-rule": [
+    "/iinv/iinv-compliance-rule/iinv/iinv-compliance-rule/save-update",
+    "/iinv/iinv-compliance-rule/iinv/iinv-compliance-rule/get/${params.id}",
+    "/iinv/iinv-compliance-rule/tools/tool-etl-rule/operators",
+    "/iinv/iinv-compliance-rule/tools/tool-customize-biz-rule/save-update",
+    "/iinv/iinv-compliance-rule/tools/tool-customize-biz-rule/get-by-biz"
+  ],
+  "/iinv/entry-invoice/batch-identifica": [
+    "/iinv/iinv-image-batch/iinv/iinv-image-batch/batch-download-files",
+    "/iinv/iinv-image-batch/iinv/iinv-image-batch/batch-ocr-inspect",
+    "/iinv/iinv-image-batch/iinv/iinv-image-batch/stop-ocr-inspect",
+    "/iinv/iinv-image-batch/iinv/iinv-image-batch/save-update",
+    "/iinv/iinv-image-batch/iinv/iinv-image-batch/get/${params.id}"
+  ],
+  "/iinv/entry-invoice/vat-recorded": [
+    "/iinv/iinv-enter-account/${apiImagePath}/downLoadImgs",
+    "/iinv/iinv-enter-account/iinv/iinv-enter-account/pushImage"
+  ],
+  "/iinv/iinv-stat": [
+    "/iinv/iinv-stat/iinv/iinv-stat/save-update",
+    "/iinv/iinv-stat/iinv/iinv-stat/get/${params.id}",
+    "/iinv/iinv-stat/iinv/iinv-stat/un-fail-stat-taxpayer",
+    "/iinv/iinv-stat/iinv/iinv-stat/stat/apply/${type}"
+  ],
+  "/iinv/personal-invoice": [
+    "/iinv/iinv-invoice/${apiImagePath}/downLoadImgs",
+    "/iinv/iinv-invoice/iinv/iinv-invoice/push-invoice"
+  ],
+  "/iinv/entry-invoice/personal-invoice": [
+    "/iinv/iinv-dzpz/iinv/iinv-dzpz/pushImage",
+    "/iinv/iinv-dzpz/iinv/iinv-dzpz/save-update",
+    "/iinv/iinv-dzpz/iinv/iinv-dzpz/get/${params.id}"
+  ],
+  "/iinv/entry-invoice/wht-authentication": [
+    "/iinv/iinv-wht-auth/${apiImagePath}/downLoadImgs",
+    "/iinv/iinv-wht-auth/iinv/iinv-wht-auth/pushImage"
+  ],
+  "/iinv/entry-invoice/red-invoice": [
+    "/iinv/iinv-red-info/iinv/iinv-red-info/getByInfoNo/${params.infoNo}"
+  ],
+  "/iinv/entry-invoice/invoice-statistics-query": [
+    "/iinv/iinv-collect/iinv/iinv-collect/manual-match"
+  ],
+  "/iinv/iinv-customs-auth": [
+    "/iinv/iinv-customs-auth/iinv/iinv-customs-auth/save-update",
+    "/iinv/iinv-customs-auth/iinv/iinv-customs-auth/get/${params.id}"
+  ],
+  "/iinv/field-config": [
+    "/iinv/iinv-type/iinv/iinv-type/page-list",
+    "/iinv/iinv-type/iinv/iinv-type/save-update",
+    "/iinv/iinv-type/iinv/iinv-type/get/${params.id}",
+    "/iinv/iinv-type/iinv/iinv-type/refresh",
+    "/iinv/iinv-type/iinv/iinv-type/delete-by-id/${params}",
+    "/iinv/iinv-type/iinv/iinv-type/copy-config"
+  ],
+  "/iinv/invoice-config/sensitive-word-config": [
+    "/iinv/iinv-sensitive/iinv/iinv-sensitive/save-update",
+    "/iinv/iinv-sensitive/iinv/iinv-sensitive/get/${params.id}"
+  ],
+  "/iinv/invoice-config/invoice-field-config": [
+    "/iinv/iinv-invoice-config/iinv/iinv-invoice-config/page-list",
+    "/iinv/iinv-invoice-config/iinv/iinv-invoice-config/save-update",
+    "/iinv/iinv-invoice-config/iinv/iinv-invoice-config/get/${params.id}",
+    "/iinv/iinv-invoice-config/iinv/iinv-invoice-config/refresh",
+    "/iinv/iinv-invoice-config/iinv/iinv-invoice-config/delete-by-id/${params}"
+  ],
+  "/iinv/invoice-config/collect-email": [
+    "/iinv/iinv-email/iinv/iinv-email/save-update",
+    "/iinv/iinv-email/iinv/iinv-email/get/${params.id}",
+    "/iinv/iinv-email/iinv/iinv-email/update-is-sync"
+  ],
+  "/iinv/invoice-config/enterprise-black": [
+    "/iinv/iinv-blacklist/iinv/iinv-blacklist/save-update",
+    "/iinv/iinv-blacklist/iinv/iinv-blacklist/get/${params.id}"
+  ],
+  "/iinv/invoice-config/main-iinv-rule": [
+    "/iinv/iinv-config/iinv/iinv-config/page-list",
+    "/iinv/iinv-config/iinv/iinv-config/save-update",
+    "/iinv/iinv-config/iinv/iinv-config/get/${params.id}",
+    "/iinv/iinv-config/iinv/iinv-config/save-update",
+    "/iinv/iinv-config/iinv/iinv-config/copy-config",
+    "/iinv/iinv-config/sys/bizbase-taxpayer/select/1"
+  ],
+  "/iinv/income-invoice-config/input-channel": [
+    "/iinv/iinv-channel-config/iinv/iinv-channel-config/save-update",
+    "/iinv/iinv-channel-config/iinv/iinv-channel-config/get/${params.id}"
+  ]
+}
